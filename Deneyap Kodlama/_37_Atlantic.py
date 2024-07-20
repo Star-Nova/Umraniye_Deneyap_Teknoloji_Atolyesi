@@ -1,9 +1,9 @@
 #çeviri çalışmıyor
 #brightness çalışmıyor
 #volume çalışmıyor
-#What is your favorite country?
-#Who made you?
-#artificial intelligence examples
+#What is your favorite country? ekelenecek (ekleyeceğim)
+#Who made you? ekelenecek (ekleyeceğim)
+#Artificial intelligence examples ekelenecek (ekleyeceğim)
 import os
 import platform
 import pyautogui

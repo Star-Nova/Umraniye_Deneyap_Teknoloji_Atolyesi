@@ -1,89 +1,29 @@
-"""
-import time
-import pywhatkit
-import speech_recognition as sr
+#çeviri çalışmıyor
+#brightness çalışmıyor
+#volume çalışmıyor
+#What is your favorite country?
+#Who made you?
+#artificial intelligence examples
 import os
-import wikipedia
-from gtts import gTTS
-import pyjokes
-from playsound import playsound
-
-listener = sr.Recognizer()
-
-def talk(text):
-    data = gTTS(text=text, lang="en")
-    data.save("Atlantic.mp3")
-    playsound("Atlantic.mp3")
-    os.remove("Atlantic.mp3")
-
-def input_data(): # benim sesli komut girmem
-    with sr.Microphone() as mic:
-        listener.adjust_for_ambient_noise(mic)
-        print("Listening ...")
-        audio = listener.listen(mic)
-        try:
-            text = listener.recognize_google(audio)
-            text = text.lower()
-            if "Hello Atlantic" in text:
-                text = text.replace("Hello Atlantic", "") # Chat GTP5 yazısını siler
-                print(text)
-                return str(text)
-            else:
-                print("Atlantic not found")
-        except sr.UnknownValueError:
-            print("Sorry, I did not understand that.")
-        except sr.RequestError:
-            print("Sorry, my speech service is down.")
-        return ""
-
-def Atlantic():
-    talk("Hi, I am Atlantic. How can I help you?")
-    while True:
-        text = input_data()
-        if text:
-            if "sign out" in text:
-                talk("Signing out. Goodbye!")
-                break
-            elif "play" in text:
-                song = text.replace("play", "")
-                pywhatkit.playonyt(song)
-            elif "jokes" in text:
-                joke = pyjokes.get_joke()
-                print(joke)
-                talk(joke)
-            elif "how are you" in text:
-                talk("Thanks, bro.")
-            elif "what is your name" in text:
-                talk("Atlantic")
-            elif "who" in text:
-                human = text.replace("who", "")
-                info = wikipedia.summary(human, 1)
-                print(info)
-                talk(info)
-            elif "search" in text:
-                search = text.replace("search", "")
-                pywhatkit.search(search)
-                talk("Searching..." + search)
-
-Atlantic()
-"""
-#Atlantic4o a.i
-
-import os
-import wikipedia
-import webbrowser
+import platform
+import pyautogui
 import pyttsx3
 import speech_recognition as sr
-import smtplib, ssl
-import requests
 import pyjokes
+import requests
+import smtplib, ssl
 import time
-import cv2
-import mediapipe as mp
+import wikipedia
+import webbrowser
+from PIL import Image
+from googletrans import Translator
+from pycaw.pycaw import AudioUtilities, ISimpleAudioVolume
+from comtypes import CLSCTX_ALL
 
+# Ses motoru ayarları
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)  # İsterseniz ses seçimini buradan ayarlayabilirsiniz.
+engine.setProperty('voice', voices[0].id)
 
 def speak(text):
     engine.say(text)
@@ -107,7 +47,6 @@ def listen():
     return query.lower()
 
 def clean_query(query):
-    # Belirli anahtar kelimeleri kaldırmak için fonksiyon
     keywords_to_remove = ["hello atlantic", "hi atlantic"]
     for keyword in keywords_to_remove:
         query = query.replace(keyword, "").strip()
@@ -123,7 +62,7 @@ def calculate(expression):
 
 def send_email(sender_email, sender_password, receiver_email, subject, body):
     smtp_server = "smtp.gmail.com"
-    port = 587  # SSL için 465, TLS için 587
+    port = 587
 
     message = f"Subject: {subject}\n\n{body}"
 
@@ -134,7 +73,7 @@ def send_email(sender_email, sender_password, receiver_email, subject, body):
         server.sendmail(sender_email, receiver_email, message)
 
 def get_location_from_ip(ip_address):
-    ipstack_api_key = "YOUR_IPSTACK_API_KEY"  # IPStack API anahtarınızı buraya ekleyin
+    ipstack_api_key = "YOUR_IPSTACK_API_KEY"
     base_url = f"http://api.ipstack.com/{ip_address}?access_key={ipstack_api_key}"
 
     response = requests.get(base_url)
@@ -147,8 +86,17 @@ def get_location_from_ip(ip_address):
     else:
         return None, None
 
+def translate_text(text, dest_language):
+    translator = Translator()
+    try:
+        translated = translator.translate(text, dest=dest_language)
+        return translated.text
+    except Exception as e:
+        print(f"Error during translation: {e}")
+        return "Sorry, I couldn't perform the translation."
+
 def get_weather(city):
-    api_key = "YOUR_OPENWEATHERMAP_API_KEY"  # OpenWeatherMap API anahtarınızı buraya ekleyin
+    api_key = "YOUR_OPENWEATHERMAP_API_KEY"
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
     complete_url = f"{base_url}q={city}&appid={api_key}&units=metric"
 
@@ -172,42 +120,91 @@ def wait(duration, unit):
         time.sleep(duration)
     speak(f"Waited for {duration} {unit}")
 
-def open_camera_and_detect_hand():
-    mp_hands = mp.solutions.hands
-    mp_drawing = mp.solutions.drawing_utils
+def set_brightness(level):
+    system = platform.system()
+    if system == 'Windows':
+        import win32api
+        import win32con
+        if level == 'high':
+            value = 100
+        elif level == 'medium':
+            value = 50
+        elif level == 'low':
+            value = 0
+        else:
+            return
+        win32api.SendMessage(win32con.HWND_BROADCAST, win32con.WM_SYSCOMMAND, win32con.SC_MONITORPOWER,
+                             int(value / 100 * 255))
+    elif system == 'Darwin':
+        if level == 'high':
+            value = 100
+        elif level == 'medium':
+            value = 50
+        elif level == 'low':
+            value = 0
+        else:
+            return
+        os.system(
+            f"osascript -e 'tell application \"System Events\" to set the value of the first slider of the first group of the first window of (first process whose frontmost is true) to {value}'")
+    elif system == 'Linux':
+        if level == 'high':
+            value = 1.0
+        elif level == 'medium':
+            value = 0.5
+        elif level == 'low':
+            value = 0.1
+        else:
+            return
+        os.system(f"xrandr --output eDP-1 --brightness {value}")
 
-    cap = cv2.VideoCapture(0)
+def set_volume(level):
+    system = platform.system()
+    if system == 'Windows':
+        if level == 'high':
+            value = 1.0
+        elif level == 'medium':
+            value = 0.5
+        elif level == 'low':
+            value = 0.0
+        else:
+            return
+        devices = AudioUtilities.GetSpeakers()
+        interface = devices.Activate(ISimpleAudioVolume._iid_, CLSCTX_ALL, None)
+        volume = interface.QueryInterface(ISimpleAudioVolume)
+        volume.SetMasterVolume(value, None)
+    elif system == 'Darwin':
+        if level == 'high':
+            value = 100
+        elif level == 'medium':
+            value = 50
+        elif level == 'low':
+            value = 0
+        else:
+            return
+        os.system(f"osascript -e 'set volume output volume {value}'")
+    elif system == 'Linux':
+        if level == 'high':
+            value = 100
+        elif level == 'medium':
+            value = 50
+        elif level == 'low':
+            value = 0
+        else:
+            return
+        os.system(f"pactl set-sink-volume 0 {value}%")
 
-    with mp_hands.Hands(min_detection_confidence=0.5, min_tracking_confidence=0.5) as hands:
-        while cap.isOpened():
-            ret, frame = cap.read()
-            if not ret:
-                print("Failed to grab frame")
-                break
-
-            image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            image.flags.writeable = False
-            results = hands.process(image)
-
-            image.flags.writeable = True
-            image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-
-            if results.multi_hand_landmarks:
-                for hand_landmarks in results.multi_hand_landmarks:
-                    mp_drawing.draw_landmarks(image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
-
-            cv2.imshow('Hand Tracking', image)
-
-            if cv2.waitKey(5) & 0xFF == 27:  # Press 'Esc' to exit
-                break
-
-    cap.release()
-    cv2.destroyAllWindows()
+def take_screenshot(filename):
+    screenshot = pyautogui.screenshot()
+    screenshot.save(filename)
+    img = Image.open(filename)
+    img.show()
 
 def run_assistant():
     speak("Hi, I'm your assistant. My name is Atlantic. How can I help you today?")
     while True:
         query = listen()
+        if query == "None":
+            continue
         query = clean_query(query)
 
         if 'sign out' in query:
@@ -222,9 +219,6 @@ def run_assistant():
                 wait(duration, unit)
             except (ValueError, IndexError):
                 speak("Sorry, I didn't understand the duration. Please specify the time in minutes or seconds.")
-        elif 'open the camera' in query:
-            speak("Opening the camera.")
-            open_camera_and_detect_hand()
         elif 'youtube search' in query:
             song = query.replace('youtube search', '').strip()
             webbrowser.open(f"https://www.youtube.com/results?search_query={song}")
@@ -237,7 +231,7 @@ def run_assistant():
             speak("Yes I love you because you create me")
         elif 'what is your name' in query:
             speak("I'm your assistant.")
-        elif 'who' in query:
+        elif 'who is' in query:
             person = query.replace('who', '').strip()
             try:
                 info = wikipedia.summary(person, sentences=2)
@@ -267,26 +261,71 @@ def run_assistant():
             subject = listen()
             speak("What is the body of the email?")
             body = listen()
-
-            try:
-                send_email(sender_email, sender_password, receiver_email, subject, body)
-                speak("Email sent successfully.")
-            except Exception as e:
-                speak(f"Sorry, I couldn't send the email. Error: {e}")
-
-        elif 'weather' in query:
-            ip_address = "YOUR_IP_ADDRESS"  # Belirtilen IP adresini burada kullanıyoruz
+            send_email(sender_email, sender_password, receiver_email, subject, body)
+            speak("Email sent successfully.")
+        elif 'weather in' in query:
+            city = query.replace('weather in', '').strip()
+            weather_report = get_weather(city)
+            speak(weather_report)
+            print(weather_report)
+        elif 'where am i' in query:
+            ip_address = requests.get('https://api.ipify.org').text
             city, region = get_location_from_ip(ip_address)
             if city and region:
-                weather_report = get_weather(city)
-                speak(weather_report)
-                print(weather_report)
+                speak(f"Your current location is {city}, {region}.")
             else:
-                speak("Sorry, I couldn't determine the location from the IP address.")
+                speak("Sorry, I couldn't determine your location.")
+        elif 'translate' in query:
+            try:
+                speak("Which language would you like to translate to? For example, type 'French', 'Spanish', etc.")
+                dest_language = listen().lower()
+                dest_language_code = {
+                    'english': 'en',
+                    'french': 'fr',
+                    'spanish': 'es',
+                    'german': 'de',
+                    'italian': 'it',
+                    'portuguese': 'pt',
+                    'russian': 'ru'
+                }.get(dest_language, 'en')
 
-        if __name__ == "__main__":
-            run_assistant()
+                speak("What text would you like to translate?")
+                text_to_translate = listen()
 
+                translated_text = translate_text(text_to_translate, dest_language_code)
+                speak(f"The translation is: {translated_text}")
+                print(f"Translation: {translated_text}")
+            except Exception as e:
+                speak("Sorry, I couldn't perform the translation.")
+                print(f"Error during translation: {e}")
+        elif 'brightness' in query:
+            if 'high' in query:
+                set_brightness('high')
+                speak("Brightness set to high.")
+            elif 'medium' in query:
+                set_brightness('medium')
+                speak("Brightness set to medium.")
+            elif 'low' in query:
+                set_brightness('low')
+                speak("Brightness set to low.")
+        elif 'volume' in query:
+            if 'high' in query:
+                set_volume('high')
+                speak("Volume set to high.")
+            elif 'medium' in query:
+                set_volume('medium')
+                speak("Volume set to medium.")
+            elif 'low' in query:
+                set_volume('low')
+                speak("Volume set to low.")
+        elif 'screenshot' in query:
+            filename = 'screenshot.png'
+            take_screenshot(filename)
+            speak("Screenshot taken and saved.")
+        else:
+            speak("I didn't understand that command. Please try again.")
 
+if __name__ == "__main__":
+    run_assistant()
 
 #Credit Kod_Yazarı

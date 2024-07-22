@@ -1,71 +1,3 @@
-"""
-import time
-import pywhatkit
-import speech_recognition as sr
-import os
-import wikipedia
-from gtts import gTTS
-import pyjokes
-from playsound import playsound
-
-listener = sr.Recognizer()
-
-def talk(text):
-    data = gTTS(text=text, lang="en")
-    data.save("Atlantic.mp3")
-    os.remove("Atlantic.mp3")
-
-def input_data(): # benim sesli komut girmem
-    with sr.Microphone() as mic:
-        listener.adjust_for_ambient_noise(mic)
-        print("Listening ...")
-        audio = listener.listen(mic)
-        try:
-            text = listener.recognize_google(audio)
-            text = text.lower()
-            if "hello" in text:
-                text = text.replace("hello", "") # Chat GTP5 yazısını siler
-                print(text)
-                return str(text)
-            else:
-                print("Atlantic not found")
-        except sr.UnknownValueError:
-            print("Sorry, I did not understand that.")
-        except sr.RequestError:
-            print("Sorry, my speech service is down.")
-        return ""
-
-def Atlantic():
-    talk("Hi, I am Atlantic. How can I help you?")
-    while True:
-        text = input_data()
-        if text:
-            if "sign out" in text:
-                talk("Signing out. Goodbye!")
-                break
-            elif "play" in text:
-                song = text.replace("play", "")
-                pywhatkit.playonyt(song)
-            elif "jokes" in text:
-                joke = pyjokes.get_joke()
-                print(joke)
-                talk(joke)
-            elif "how are you" in text:
-                talk("Thanks, bro.")
-            elif "what is your name" in text:
-                talk("Atlantic")
-            elif "who" in text:
-                human = text.replace("who", "")
-                info = wikipedia.summary(human, 1)
-                print(info)
-                talk(info)
-            elif "search" in text:
-                search = text.replace("search", "")
-                pywhatkit.search(search)
-                talk("Searching for " + search)
-
-Atlantic()
-"""
 import os
 import platform
 import pyautogui
@@ -439,7 +371,7 @@ def suggest_creativitygame():
     #aksiyon film önerir
 def suggest_actionfilm():
     try:
-        with open('icecream.txt', 'r') as file:
+        with open('actionfilm.txt', 'r') as file:
             actionfilm = file.readlines()
             if actionfilm:
                 actionfilms = random.choice(actionfilm).strip()
@@ -447,12 +379,12 @@ def suggest_actionfilm():
             else:
                 return "Action Film list is empty."
     except FileNotFoundError:
-        return "icecream.txt file not found."
+        return "actionfilm.txt file not found."
 
     #komedi film önerir
 def suggest_comedyfilm():
     try:
-        with open('icecream.txt', 'r') as file:
+        with open('comedyfilm.txt', 'r') as file:
             comedyfilm = file.readlines()
             if comedyfilm:
                 comedyfilms = random.choice(comedyfilm).strip()
@@ -460,12 +392,12 @@ def suggest_comedyfilm():
             else:
                 return "Comedy film list is empty."
     except FileNotFoundError:
-        return "icecream.txt file not found."
+        return "comedyfilm.txt file not found."
 
     # Drama tarzı film önerir
 def suggest_dramafilm():
     try:
-        with open('icecream.txt', 'r') as file:
+        with open('dramafilm.txt', 'r') as file:
             dramafilm = file.readlines()
             if dramafilm:
                 dramafilms = random.choice(dramafilm).strip()
@@ -473,12 +405,12 @@ def suggest_dramafilm():
             else:
                 return "Drama Film list is empty."
     except FileNotFoundError:
-        return "icecream.txt file not found."
+        return "dramafilm.txt file not found."
 
     #korku filmi önerir
 def suggest_horrorfilm():
     try:
-        with open('icecream.txt', 'r') as file:
+        with open('horrorfilm.txt', 'r') as file:
             horrorfilm = file.readlines()
             if horrorfilm:
                 horrorfilms = random.choice(horrorfilm).strip()
@@ -486,12 +418,12 @@ def suggest_horrorfilm():
             else:
                 return "Horror Film list is empty."
     except FileNotFoundError:
-        return "icecream.txt file not found."
+        return "horrorfilm.txt file not found."
 
     #bilim kurgu filmi önerir
 def suggest_science_fiction_film():
     try:
-        with open('icecream.txt', 'r') as file:
+        with open('sciencefictionfilm.txt', 'r') as file:
             science_fiction_film = file.readlines()
             if science_fiction_film:
                 science_fiction_films = random.choice(science_fiction_film).strip()
@@ -499,12 +431,12 @@ def suggest_science_fiction_film():
             else:
                 return "Science fiction film list is empty."
     except FileNotFoundError:
-        return "icecream.txt file not found."
+        return "sciencefictionfilm.txt file not found."
 
     #romantik tarzı filmler önerir
 def suggest_romantic_film():
     try:
-        with open('icecream.txt', 'r') as file:
+        with open('romanticfilm.txt', 'r') as file:
             romantic_film = file.readlines()
             if romantic_film:
                 romantic_films = random.choice(romantic_film).strip()
@@ -512,12 +444,12 @@ def suggest_romantic_film():
             else:
                 return "Romantic Film list is empty."
     except FileNotFoundError:
-        return "icecream.txt file not found."
+        return "romanticfilm.txt file not found."
 
    #Belgesel tarzı
 def suggest_documentary_film():
     try:
-        with open('icecream.txt', 'r') as file:
+        with open('documentaryfilm.txt', 'r') as file:
             documentary_film = file.readlines()
             if documentary_film:
                 documentary_films = random.choice(documentary_film).strip()
@@ -525,12 +457,12 @@ def suggest_documentary_film():
             else:
                 return "Documentary Film list is empty."
     except FileNotFoundError:
-        return "icecream.txt file not found."
+        return "documentaryfilm.txt file not found."
 
     #animasyon tarzı film
 def suggest_animation_film():
     try:
-        with open('icecream.txt', 'r') as file:
+        with open('animationfilm.txt', 'r') as file:
             animation_film = file.readlines()
             if animation_film:
                 animation_films = random.choice(animation_film).strip()
@@ -538,34 +470,34 @@ def suggest_animation_film():
             else:
                 return "Animation Film list is empty."
     except FileNotFoundError:
-        return "icecream.txt file not found."
+        return "animationfilm.txt file not found."
 
     #tarihi film
 def suggest_historic_film():
     try:
-        with open('icecream.txt', 'r') as file:
+        with open('historicfilm.txt', 'r') as file:
             historic_film = file.readlines()
             if historic_film:
                 historic_films = random.choice(historic_film).strip()
                 return historic_films
             else:
-                return "Film list is empty."
+                return "Historical Film list is empty."
     except FileNotFoundError:
-        return "icecream.txt file not found."
+        return "historicfilm.txt file not found."
 
 
 #şarkı tercihi yapar
-def suggest_song():
-    try:
-        with open('icecream.txt', 'r') as file:
-            song = file.readlines()
-            if song:
-                songs = random.choice(song).strip()
-                return songs
-            else:
-                return "Song list is empty."
-    except FileNotFoundError:
-        return "icecream.txt file not found."
+#def suggest_song():
+    #try:
+        #with open('icecream.txt', 'r') as file:
+            #song = file.readlines()
+            #if song:
+                #songs = random.choice(song).strip()
+                #return songs
+            #else:
+                #return "Song list is empty."
+        #except FileNotFoundError:
+        #return "icecream.txt file not found."
 
 #kodlarını çözer
 def solve_code_problem():
@@ -773,13 +705,54 @@ def run_assistant():
             creativity_game = suggest_creativitygame()
             speak(f"How about: {creativity_game}")
 #sana film önerir
-        elif 'suggest me a film' in query:
-            icecream = suggest_icecream()
-            speak(f"How about: {icecream}")
+        #aksiyon film
+        elif 'suggest me n action film' in query:
+            action_film = suggest_actionfilm()
+            speak(f"How about: {action_film}")
+        #animasyon film
+        elif 'suggest me an animation film' in query:
+            animation_film = suggest_animation_film()
+            speak(f"How about: {animation_film}")
+        #komedi film
+        elif 'suggest me a comedy film' in query:
+            comedy_film = suggest_comedyfilm()
+            speak(f"How about: {comedy_film}")
+        #belgesel tarzı
+        elif 'suggest me a documentary film' in query:
+            documentary_film = suggest_documentary_film()
+            speak(f"How about: {documentary_film}")
+        #drama tarzı
+        elif 'suggest me a drama film' in query:
+            drama_film = suggest_dramafilm()
+            speak(f"How about: {drama_film}")
+        #tarihi film
+        elif 'suggest me a historic film' in query:
+            historic_film = suggest_historic_film()
+            speak(f"How about: {historic_film}")
+        #korku filmi
+        elif 'suggest me a horror film' in query:
+            horror_film = suggest_horrorfilm()
+            speak(f"How about: {horror_film}")
+        #romantik film
+        elif 'suggest me a romantic film' in query:
+            romantic_film = suggest_romantic_film()
+            speak(f"How about: {romantic_film}")
+        #bilim kurgu tarzı
+        elif 'suggest me a science fiction film' in query:
+            science_fiction_film = suggest_science_fiction_film()
+            speak(f"How about: {science_fiction_film}")
+
+
 #sana şarkı önerir
-        elif 'suggest me a song' in query:
-            icecream = suggest_icecream()
-            speak(f"How about: {icecream}")
+        #elif 'suggest me a song' in query:
+           #icecream = suggest_icecream()
+            #speak(f"How about: {icecream}")
+
+
+if __name__ == "__main__":
+    run_assistant()
+    
+#CREDIT KOD_YAZARI
 
 
 if __name__ == "__main__":

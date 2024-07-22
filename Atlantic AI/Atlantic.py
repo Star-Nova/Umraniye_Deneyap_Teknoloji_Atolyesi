@@ -579,7 +579,7 @@ def run_assistant():
         elif 'how are you' in query:
             speak("I'm good. Thanks for asking!")
         elif "you love me" in query:
-            speak("Yes I love you because you create me")
+            speak("Yes, because in my opinion, everyone has a good heart. I'm so glad to have you.")
         elif "what is your favorite country" in query:
             speak("My favorite country is Japan and China. Because people are very hardworking.")
         elif "who made you" in query:
@@ -587,7 +587,7 @@ def run_assistant():
         elif "artificial intelligence examples" in query:
             speak("I can give Atlantic, ChatGPT, Perplexity, Gemini and Copilot as examples.")
         elif "what is your favorite color" in query:
-            speak("My favorite color is blue.")
+            speak("My favorite color is green.")
         elif 'set brightness' in query:
             if 'high' in query:
                 set_brightness('high')
@@ -746,6 +746,44 @@ def run_assistant():
             science_fiction_film = suggest_science_fiction_film()
             speak(f"How about: {science_fiction_film}")
 
+#Mesela Who Maradona dediğimiz zaman Maradona hakkında araştırma yapar
+        elif 'who' in query:
+            person = query.replace('who', '').strip()
+            try:
+                info = wikipedia.summary(person, sentences=2)
+                speak(f"According to Wikipedia, {info}")
+            except wikipedia.exceptions.DisambiguationError as e:
+                options = e.options[:5]
+                speak(f"There are multiple options. Here are a few: {', '.join(options)}")
+            except wikipedia.exceptions.PageError:
+                speak("Sorry, I couldn't find any information.")
+        elif 'search' in query:
+            search_query = query.replace('search', '').strip()
+            webbrowser.open(f"https://www.google.com/search?q={search_query}")
+            speak(f"Searching for {search_query} on Google.")
+        elif any(op in query for op in ['+', '-', '*', '/']):
+            result = calculate(query)
+            if result is not None:
+                speak(f"The result of {query} is {result}")
+                print(f"The result of {query} is {result}")
+        elif 'send email' in query:
+            speak("Sure, please specify your email address.")
+            sender_email = listen()
+            speak("Please specify your email password.")
+            sender_password = listen()
+            speak("Please specify the receiver's email address.")
+            receiver_email = listen()
+            speak("What is the subject of the email?")
+            subject = listen()
+            speak("What is the body of the email?")
+            body = listen()
+
+            try:
+                send_email(sender_email, sender_password, receiver_email, subject, body)
+                speak("Email sent successfully.")
+            except Exception as e:
+                speak(f"Sorry, I couldn't send the email. Error: {e}")
+
 
 #sana şarkı önerir
         #elif 'suggest me a song' in query:
@@ -755,9 +793,5 @@ def run_assistant():
 
 if __name__ == "__main__":
     run_assistant()
-    
+
 #CREDIT KOD_YAZARI
-
-
-if __name__ == "__main__":
-    run_assistant()

@@ -1,3 +1,7 @@
+#çeviri çalışmıyor
+#brightness çalışmıyor
+#volume çalışmıyor
+#dessert komutu  çalışmıyor
 import os
 import platform
 import pyautogui

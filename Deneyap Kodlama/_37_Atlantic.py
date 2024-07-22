@@ -1,9 +1,7 @@
 #çeviri çalışmıyor
 #brightness çalışmıyor
 #volume çalışmıyor
-#What is your favorite country? ekelenecek (ekleyeceğim)
-#Who made you? ekelenecek (ekleyeceğim)
-#Artificial intelligence examples ekelenecek (ekleyeceğim)
+#dessert çalışmıyor
 import os
 import platform
 import pyautogui
@@ -19,6 +17,7 @@ from PIL import Image
 from googletrans import Translator
 from pycaw.pycaw import AudioUtilities, ISimpleAudioVolume
 from comtypes import CLSCTX_ALL
+import random
 
 # Ses motoru ayarları
 engine = pyttsx3.init()
@@ -41,8 +40,11 @@ def listen():
         query = r.recognize_google(audio, language='en')
         print(f"User said: {query}\n")
         speak(f"You said: {query}")
-    except Exception as e:
+    except sr.UnknownValueError:
         print("Sorry, I couldn't catch that. Please say that again.")
+        return "None"
+    except sr.RequestError:
+        print("Sorry, there was an error with the speech recognition service.")
         return "None"
     return query.lower()
 
@@ -123,8 +125,6 @@ def wait(duration, unit):
 def set_brightness(level):
     system = platform.system()
     if system == 'Windows':
-        import win32api
-        import win32con
         if level == 'high':
             value = 100
         elif level == 'medium':
@@ -133,8 +133,8 @@ def set_brightness(level):
             value = 0
         else:
             return
-        win32api.SendMessage(win32con.HWND_BROADCAST, win32con.WM_SYSCOMMAND, win32con.SC_MONITORPOWER,
-                             int(value / 100 * 255))
+        # Simulated brightness control
+        print(f"Set brightness to {value}%")
     elif system == 'Darwin':
         if level == 'high':
             value = 100
@@ -144,8 +144,7 @@ def set_brightness(level):
             value = 0
         else:
             return
-        os.system(
-            f"osascript -e 'tell application \"System Events\" to set the value of the first slider of the first group of the first window of (first process whose frontmost is true) to {value}'")
+        os.system(f"osascript -e 'tell application \"System Events\" to set the value of the first slider of the first group of the first window of (first process whose frontmost is true) to {value}'")
     elif system == 'Linux':
         if level == 'high':
             value = 1.0
@@ -199,6 +198,114 @@ def take_screenshot(filename):
     img = Image.open(filename)
     img.show()
 
+def suggest_hobby():
+    try:
+        with open(' hobby.txt', 'r') as file:
+            hobbies = file.readlines()
+            if hobbies:
+                hobby = random.choice(hobbies).strip()
+                return hobby
+            else:
+                return "Hobby list is empty."
+    except FileNotFoundError:
+        return "hobby.txt file not found."
+
+def suggest_dessert():
+    try:
+        with open('tatli.txt', 'r') as file:
+            desserts = file.readlines()
+            if desserts:
+                dessert = random.choice(desserts).strip()
+                return dessert
+            else:
+                return "Dessert list is empty."
+    except FileNotFoundError:
+        return "tatli.txt file not found."
+
+def suggest_meatdishes():
+    try:
+        with open('meatdishes.txt', 'r') as file:
+            meatdishess = file.readlines()
+            if meatdishess:
+                meatdishes = random.choice(meatdishess).strip()
+                return meatdishes
+            else:
+                return "Meat Dishes list is empty."
+    except FileNotFoundError:
+        return "meatdishes.txt file not found."
+
+def suggest_vegetabledishes():
+    try:
+        with open('vegetabledishes.txt', 'r') as file:
+            vegetabledishess = file.readlines()
+            if vegetabledishess:
+                vegetabledishes = random.choice(vegetabledishess).strip()
+                return vegetabledishes
+            else:
+                return "Vegetable Dishes list is empty."
+    except FileNotFoundError:
+        return "vegetabledishes.txt file not found."
+
+def suggest_soup():
+    try:
+        with open('soup.txt', 'r') as file:
+            soups = file.readlines()
+            if soups:
+                soup = random.choice(soups).strip()
+                return soup
+            else:
+                return "Soup list is empty."
+    except FileNotFoundError:
+        return "soup.txt file not found."
+
+def suggest_bread():
+    try:
+        with open('bread.txt', 'r') as file:
+            breads = file.readlines()
+            if breads:
+                bread = random.choice(breads).strip()
+                return bread
+            else:
+                return "Bread list is empty."
+    except FileNotFoundError:
+        return "bread.txt file not found."
+
+def suggest_salad():
+    try:
+        with open('salad.txt', 'r') as file:
+            salads = file.readlines()
+            if salads:
+                salad = random.choice(salads).strip()
+                return salad
+            else:
+                return "Salads list is empty."
+    except FileNotFoundError:
+        return "salad.txt file not found."
+
+def suggest_hamurisleri():
+    try:
+        with open('hamurisleri.txt', 'r') as file:
+            hamurisleris = file.readlines()
+            if hamurisleris:
+                hamurisleri = random.choice(hamurisleris).strip()
+                return hamurisleri
+            else:
+                return "Pastries list is empty."
+    except FileNotFoundError:
+        return "hamurisleri.txt file not found."
+
+def suggest_icecream():
+    try:
+        with open('icecream.txt', 'r') as file:
+            icecreams = file.readlines()
+            if icecreams:
+                icecream = random.choice(icecreams).strip()
+                return icecream
+            else:
+                return "Ice cream list is empty."
+    except FileNotFoundError:
+        return "icecream.txt file not found."
+
 def run_assistant():
     speak("Hi, I'm your assistant. My name is Atlantic. How can I help you today?")
     while True:
@@ -229,101 +336,59 @@ def run_assistant():
             speak("I'm good. Thanks for asking!")
         elif "you love me" in query:
             speak("Yes I love you because you create me")
-        elif 'what is your name' in query:
-            speak("I'm your assistant.")
-        elif 'who is' in query:
-            person = query.replace('who', '').strip()
-            try:
-                info = wikipedia.summary(person, sentences=2)
-                speak(f"According to Wikipedia, {info}")
-            except wikipedia.exceptions.DisambiguationError as e:
-                options = e.options[:5]
-                speak(f"There are multiple options. Here are a few: {', '.join(options)}")
-            except wikipedia.exceptions.PageError:
-                speak("Sorry, I couldn't find any information.")
-        elif 'search' in query:
-            search_query = query.replace('search', '').strip()
-            webbrowser.open(f"https://www.google.com/search?q={search_query}")
-            speak(f"Searching for {search_query} on Google.")
-        elif any(op in query for op in ['+', '-', '*', '/']):
-            result = calculate(query)
-            if result is not None:
-                speak(f"The result of {query} is {result}")
-                print(f"The result of {query} is {result}")
-        elif 'send email' in query:
-            speak("Sure, please specify your email address.")
-            sender_email = listen()
-            speak("Please specify your email password.")
-            sender_password = listen()
-            speak("Please specify the receiver's email address.")
-            receiver_email = listen()
-            speak("What is the subject of the email?")
-            subject = listen()
-            speak("What is the body of the email?")
-            body = listen()
-            send_email(sender_email, sender_password, receiver_email, subject, body)
-            speak("Email sent successfully.")
-        elif 'weather in' in query:
-            city = query.replace('weather in', '').strip()
-            weather_report = get_weather(city)
-            speak(weather_report)
-            print(weather_report)
-        elif 'where am i' in query:
-            ip_address = requests.get('https://api.ipify.org').text
-            city, region = get_location_from_ip(ip_address)
-            if city and region:
-                speak(f"Your current location is {city}, {region}.")
-            else:
-                speak("Sorry, I couldn't determine your location.")
-        elif 'translate' in query:
-            try:
-                speak("Which language would you like to translate to? For example, type 'French', 'Spanish', etc.")
-                dest_language = listen().lower()
-                dest_language_code = {
-                    'english': 'en',
-                    'french': 'fr',
-                    'spanish': 'es',
-                    'german': 'de',
-                    'italian': 'it',
-                    'portuguese': 'pt',
-                    'russian': 'ru'
-                }.get(dest_language, 'en')
-
-                speak("What text would you like to translate?")
-                text_to_translate = listen()
-
-                translated_text = translate_text(text_to_translate, dest_language_code)
-                speak(f"The translation is: {translated_text}")
-                print(f"Translation: {translated_text}")
-            except Exception as e:
-                speak("Sorry, I couldn't perform the translation.")
-                print(f"Error during translation: {e}")
-        elif 'brightness' in query:
+        elif "what is your favorite country" in query:
+            speak("My favorite country is Japan and China. Because people are very hardworking.")
+        elif "who made you" in query:
+            speak("Ege Tanriverdi made me. Notorious Code Writer.")
+        elif "artificial intelligence examples" in query:
+            speak("I can give Atlantic, ChatGPT, Perplexity, Gemini and Copilot as examples.")
+        elif "what is your favorite color" in query:
+            speak("My favorite color is blue.")
+        elif 'set brightness' in query:
             if 'high' in query:
                 set_brightness('high')
-                speak("Brightness set to high.")
             elif 'medium' in query:
                 set_brightness('medium')
-                speak("Brightness set to medium.")
             elif 'low' in query:
                 set_brightness('low')
-                speak("Brightness set to low.")
-        elif 'volume' in query:
+        elif 'set volume' in query:
             if 'high' in query:
                 set_volume('high')
-                speak("Volume set to high.")
             elif 'medium' in query:
                 set_volume('medium')
-                speak("Volume set to medium.")
             elif 'low' in query:
                 set_volume('low')
-                speak("Volume set to low.")
-        elif 'screenshot' in query:
+        elif 'take a screenshot' in query:
             filename = 'screenshot.png'
             take_screenshot(filename)
             speak("Screenshot taken and saved.")
-        else:
-            speak("I didn't understand that command. Please try again.")
+        elif 'suggest me a hobby' in query:
+            hobby = suggest_hobby()
+            speak(f"How about: {hobby}")
+        elif 'suggest me a desert' in query:
+            tatli = suggest_dessert()
+            speak(f"How about: {tatli}")
+        elif 'suggest me a meat dishes' in query:
+            meat_dishes = suggest_meatdishes()
+            speak(f"How about: {meat_dishes}")
+        elif 'suggest me a vegetable dishes' in query:
+            vegetable_dishes = suggest_vegetabledishes()
+            speak(f"How about: {vegetable_dishes}")
+        elif 'suggest me a soup' in query:
+            soup = suggest_soup()
+            speak(f"How about: {soup}")
+        elif 'suggest me a salad' in query:
+            salad = suggest_salad()
+            speak(f"How about: {salad}")
+        elif 'suggest me a bread' in query:
+            bread = suggest_bread()
+            speak(f"How about: {bread}")
+        elif 'suggest me a pastries' in query:
+            hamurisleri = suggest_hamurisleri()
+            speak(f"How about: {hamurisleri}")
+        elif 'suggest me an ice cream' in query:
+            icecream = suggest_icecream()
+            speak(f"How about: {icecream}")
 
 if __name__ == "__main__":
     run_assistant()

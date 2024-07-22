@@ -1,0 +1,100 @@
+Caesar Salad - Romaine lettuce with croutons, Parmesan cheese, and Caesar dressing.
+Greek Salad - Cucumber, tomatoes, olives, red onion, and feta cheese with olive oil and oregano.
+Caprese Salad - Tomatoes, fresh mozzarella, basil, and balsamic glaze.
+Cobb Salad - Mixed greens with chicken, bacon, eggs, avocado, and blue cheese.
+Garden Salad - Mixed greens with assorted vegetables like cucumbers, tomatoes, and carrots.
+Spinach Salad - Fresh spinach with red onions, bacon, eggs, and a tangy dressing.
+Fruit Salad - Mixed fresh fruits like apples, oranges, and berries.
+Quinoa Salad - Quinoa with vegetables like bell peppers, cucumbers, and a lemon vinaigrette.
+Coleslaw - Shredded cabbage and carrots with a creamy dressing.
+Avocado Salad - Avocado, tomatoes, onions, and cilantro with lime juice.
+Asian Noodle Salad - Cold noodles with vegetables, sesame seeds, and an Asian-style dressing.
+Pasta Salad - Cooked pasta with vegetables, olives, and a vinaigrette.
+Lentil Salad - Cooked lentils with vegetables like bell peppers and a lemon dressing.
+Beet Salad - Roasted beets with goat cheese, walnuts, and a balsamic vinaigrette.
+Chickpea Salad - Chickpeas with cucumbers, tomatoes, and a lemon-tahini dressing.
+Kale Salad - Kale with avocado, nuts, and a tangy citrus dressing.
+Black Bean Salad - Black beans with corn, bell peppers, and a lime dressing.
+Tabbouleh - Middle Eastern salad with bulgur, parsley, tomatoes, and a lemon dressing.
+Potato Salad - Boiled potatoes with mayonnaise, mustard, and pickles.
+Tuna Salad - Tuna mixed with mayonnaise, celery, and onions.
+Sweet Potato Salad - Roasted sweet potatoes with a mustard vinaigrette and herbs.
+Apple Salad - Apples with celery, walnuts, and a creamy dressing.
+Tomato Salad - Sliced tomatoes with red onions, basil, and a balsamic dressing.
+Chopped Salad - Finely chopped vegetables and herbs with a tangy dressing.
+Zucchini Salad - Sliced zucchini with lemon juice, olive oil, and herbs.
+Hummus Salad - Hummus served with fresh vegetables and pita bread.
+Mediterranean Salad - Mixed greens with olives, feta cheese, and a Greek vinaigrette.
+Arugula Salad - Arugula with Parmesan cheese, lemon juice, and olive oil.
+Buffalo Chicken Salad - Chicken tossed in buffalo sauce with lettuce and ranch dressing.
+Panzanella Salad - Italian bread salad with tomatoes, cucumbers, and basil.
+Edamame Salad - Edamame with corn, bell peppers, and a soy-based dressing.
+Roasted Veggie Salad - Roasted vegetables like sweet potatoes, bell peppers, and onions with a vinaigrette.
+Corn Salad - Fresh corn with cucumbers, bell peppers, and a lime dressing.
+Broccoli Salad - Raw broccoli with bacon, raisins, and a creamy dressing.
+Cucumber Salad - Sliced cucumbers with red onions and a vinegar-based dressing.
+Seafood Salad - Mixed seafood with vegetables and a light dressing.
+Egg Salad - Chopped eggs with mayonnaise, mustard, and herbs.
+Roasted Tomato Salad - Roasted tomatoes with basil and a balsamic glaze.
+Fennel Salad - Thinly sliced fennel with oranges and a citrus vinaigrette.
+Prosciutto and Melon Salad - Prosciutto with cantaloupe or honeydew and a drizzle of balsamic.
+Stuffed Tomato Salad - Tomatoes filled with a mixture of cheese, herbs, and vegetables.
+Smoked Salmon Salad - Smoked salmon with mixed greens, capers, and a dill dressing.
+Chicken Caesar Salad - Caesar salad with grilled chicken.
+Roasted Beet and Feta Salad - Roasted beets with feta cheese and a balsamic vinaigrette.
+Pear and Gorgonzola Salad - Sliced pears with Gorgonzola cheese and walnuts.
+Grilled Vegetable Salad - Grilled vegetables like zucchini and eggplant with a balsamic dressing.
+Creamy Avocado Salad - Avocado with a creamy dressing and mixed greens.
+Mango Salad - Fresh mango with red onion, cilantro, and a lime dressing.
+Chicken and Apple Salad - Chicken with apples, celery, and a yogurt dressing.
+Roasted Chickpea Salad - Roasted chickpeas with vegetables and a spicy dressing.
+Tomato and Mozzarella Salad - Sliced tomatoes and mozzarella with basil and olive oil.
+Asian Slaw - Shredded cabbage with an Asian-inspired sesame dressing.
+Roasted Cauliflower Salad - Roasted cauliflower with herbs and a tahini dressing.
+Lentil and Kale Salad - Cooked lentils with kale, tomatoes, and a lemon dressing.
+Apple and Walnut Salad - Apples with walnuts, mixed greens, and a honey mustard dressing.
+Corn and Avocado Salad - Corn with avocado, tomatoes, and a lime vinaigrette.
+Peach and Burrata Salad - Fresh peaches with burrata cheese and a balsamic glaze.
+Tarragon Chicken Salad - Chicken with tarragon, grapes, and a creamy dressing.
+Pear and Walnut Salad - Sliced pears with walnuts, blue cheese, and a vinaigrette.
+Cabbage and Carrot Salad - Shredded cabbage and carrots with a tangy dressing.
+Roasted Pepper Salad - Roasted bell peppers with olives and a garlic dressing.
+Grilled Corn Salad - Grilled corn with tomatoes, cilantro, and a lime dressing.
+Buffalo Cauliflower Salad - Roasted cauliflower tossed in buffalo sauce with ranch dressing.
+Curried Chickpea Salad - Chickpeas with curry powder, vegetables, and a yogurt dressing.
+Chilled Avocado Soup - Creamy avocado soup served chilled with a salad garnish.
+Greek Pasta Salad - Pasta with cucumbers, olives, feta cheese, and a Greek dressing.
+Roasted Brussels Sprout Salad - Roasted Brussels sprouts with nuts and a balsamic vinaigrette.
+Sliced Beet Salad - Sliced beets with goat cheese and walnuts.
+Caprese Pasta Salad - Pasta with tomatoes, mozzarella, basil, and a balsamic glaze.
+Spinach and Strawberry Salad - Spinach with fresh strawberries, almonds, and a poppy seed dressing.
+Mediterranean Quinoa Salad - Quinoa with cucumbers, tomatoes, olives, and feta cheese.
+Thai Beef Salad - Sliced beef with mixed vegetables and a spicy Thai dressing.
+Roasted Sweet Potato Salad - Roasted sweet potatoes with black beans and a lime dressing.
+Chilled Cucumber Soup Salad - Chilled cucumber soup served with a side salad of mixed vegetables.
+Sweet Corn and Black Bean Salad - Corn with black beans, tomatoes, and a cilantro-lime dressing.
+Bacon and Tomato Salad - Bacon with tomatoes and mixed greens, drizzled with a vinaigrette.
+Cucumber and Dill Salad - Cucumber with dill and a yogurt dressing.
+Grilled Eggplant Salad - Grilled eggplant with tomatoes and a tahini dressing.
+Avocado and Grapefruit Salad - Avocado with grapefruit segments and a honey vinaigrette.
+Cobb Pasta Salad - Pasta salad with bacon, avocado, hard-boiled eggs, and cheese.
+Roasted Root Vegetable Salad - Roasted root vegetables with a honey mustard dressing.
+Tuna and White Bean Salad - Tuna with white beans, red onions, and a lemon dressing.
+Sweet Potato and Black Bean Salad - Sweet potatoes with black beans and a cumin-lime dressing.
+Roasted Chickpea and Spinach Salad - Roasted chickpeas with spinach and a tahini dressing.
+Pico de Gallo Salad - Fresh salsa with tomatoes, onions, cilantro, and lime.
+Beet and Goat Cheese Salad - Roasted beets with goat cheese and walnuts.
+Balsamic Strawberry Salad - Fresh strawberries with balsamic reduction and mixed greens.
+Grilled Chicken and Avocado Salad - Grilled chicken with avocado, lettuce, and a creamy dressing.
+Greek Orzo Salad - Orzo pasta with cucumbers, olives, feta, and a Greek vinaigrette.
+Panzanella - Italian bread salad with tomatoes, cucumbers, and basil.
+Zucchini and Tomato Salad - Sliced zucchini and tomatoes with a lemon-herb dressing.
+Chicken and Pineapple Salad - Grilled chicken with pineapple chunks and mixed greens.
+Garlic Roasted Tomato Salad - Roasted tomatoes with garlic and herbs.
+Lemon Herb Quinoa Salad - Quinoa with lemon, herbs, and mixed vegetables.
+Mediterranean Bean Salad - Beans with cucumbers, tomatoes, and feta cheese.
+Radish and Cucumber Salad - Sliced radishes and cucumbers with a dill dressing.
+Tomato and Chickpea Salad - Tomatoes with chickpeas, cucumbers, and a lemon dressing.
+Crispy Chickpea Salad - Crispy chickpeas with mixed greens and a yogurt dressing.
+Apple and Cucumber Salad - Apples with cucumbers, mint, and a honey-lime dressing.
+Grapefruit and Avocado Salad - Grapefruit with avocado and a citrus dressing.

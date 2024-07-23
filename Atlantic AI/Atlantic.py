@@ -3,6 +3,11 @@
 #volume çalışmıyor
 #dessert komutu  çalışmıyor
 import os
+import pyautogui
+import wavio
+import sounddevice as sd
+from PIL import Image
+import datetime
 import sounddevice as sd
 import speech_recognition as sr
 import speech_recognition_python
@@ -497,6 +502,124 @@ def suggest_historic_film():
     except FileNotFoundError:
         return "historicfilm.txt file not found."
 
+#şarkı tercihi yapar
+#pop music
+def suggest_popsong():
+    try:
+        with open('pop_music.txt', 'r') as file:
+            pop_music = file.readlines()
+            if pop_music:
+                pop_musics = random.choice(pop_music).strip()
+                return pop_musics
+            else:
+                return "Pop Music list is empty."
+    except FileNotFoundError:
+        return "pop_music.txt file not found."
+
+#rock music
+def suggest_rocksong():
+    try:
+        with open('rock_music.txt', 'r') as file:
+            rock_music = file.readlines()
+            if rock_music:
+                rock_musics = random.choice(rock_music).strip()
+                return rock_musics
+            else:
+                return "Rock Music list is empty."
+    except FileNotFoundError:
+        return "rock_music.txt file not found."
+
+#hippop music
+def suggest_hippopsong():
+    try:
+        with open('hippop_music.txt', 'r') as file:
+            hippop_music = file.readlines()
+            if hippop_music:
+                hippop_musics = random.choice(hippop_music).strip()
+                return hippop_musics
+            else:
+                return "Hip-Pop Music list is empty."
+    except FileNotFoundError:
+        return "hippop_music.txt file not found."
+
+#country music
+def suggest_countrysong():
+    try:
+        with open('country_music.txt', 'r') as file:
+            country_music = file.readlines()
+            if country_music:
+                country_musics = random.choice(country_music).strip()
+                return country_musics
+            else:
+                return "Country Music list is empty."
+    except FileNotFoundError:
+        return "country_music.txt file not found."
+
+#jazz music
+def suggest_jazzsong():
+    try:
+        with open('jazz_music.txt', 'r') as file:
+            jazz_music = file.readlines()
+            if jazz_music:
+                jazz_musics = random.choice(jazz_music).strip()
+                return jazz_musics
+            else:
+                return "Jazz Music list is empty."
+    except FileNotFoundError:
+        return "jazz_music.txt file not found."
+
+#electronik music
+def suggest_electroniksong():
+    try:
+        with open('electronic_music.txt', 'r') as file:
+            electronic_music = file.readlines()
+            if electronic_music:
+                electronic_musics = random.choice(electronic_music).strip()
+                return electronic_musics
+            else:
+                return "Electronic Music list is empty."
+    except FileNotFoundError:
+        return "electronic_music.txt file not found."
+
+#klasik music
+def suggest_kalsikksong():
+    try:
+        with open('klasic_music.txt', 'r') as file:
+            kalsik_music = file.readlines()
+            if kalsik_music:
+                kalsik_musics = random.choice(kalsik_music).strip()
+                return kalsik_musics
+            else:
+                return "Klasic Music list is empty."
+    except FileNotFoundError:
+        return "klasic_music.txt file not found."
+
+#latin music
+def suggest_latinsong():
+    try:
+        with open('latin_music.txt', 'r') as file:
+            latin_music = file.readlines()
+            if latin_music:
+                latin_musics = random.choice(latin_music).strip()
+                return latin_musics
+            else:
+                return "Latin Music list is empty."
+    except FileNotFoundError:
+        return "latin_music.txt file not found."
+
+#folk music
+def suggest_folksong():
+    try:
+        with open('folk_music.txt', 'r') as file:
+            folk_music = file.readlines()
+            if folk_music:
+                folk_musics = random.choice(folk_music).strip()
+                return folk_musics
+            else:
+                return "Latin Music list is empty."
+    except FileNotFoundError:
+        return "folk_music.txt file not found."
+
 #KAMERA AÇMA VE ELİ GÖSTERME
 def open_camera_and_detect_hand():
     mp_hands = mp.solutions.hands
@@ -536,19 +659,31 @@ def record_and_play_audio(duration=10):
     print("Playback started...")
     sd.play(recording, samplerate=fs)
     sd.wait()
+#fotoğrafını çeker
+def capture_photo():
+    # Kamerayı aç
+    cap = cv2.VideoCapture(0)
 
-#şarkı tercihi yapar
-#def suggest_song():
-    #try:
-        #with open('icecream.txt', 'r') as file:
-            #song = file.readlines()
-            #if song:
-                #songs = random.choice(song).strip()
-                #return songs
-            #else:
-                #return "Song list is empty."
-        #except FileNotFoundError:
-        #return "icecream.txt file not found."
+    if not cap.isOpened():
+        print("Kamera açılamadı.")
+        return
+
+    # Kamera görüntüsünü al
+    ret, frame = cap.read()
+    if ret:
+        # Dosya adını oluştur
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        photo_filename = f"photo_{timestamp}.png"
+        # Fotoğrafı kaydet
+        cv2.imwrite(photo_filename, frame)
+        print(f"Fotoğraf kaydedildi: {photo_filename}")
+    else:
+        print("Fotoğraf alınamadı.")
+
+    # Kamerayı kapat
+    cap.release()
+    cv2.destroyAllWindows()
+
 
 #kodlarını çözer
 def solve_code_problem():
@@ -838,13 +973,50 @@ def run_assistant():
         elif 'record and play' in query:
             duration = int(input("Please enter the duration you want to record (seconds) "))
             record_and_play_audio(duration)
+#fotoğrafını çeker
+        elif 'take photo' in query:
+            capture_photo()
+            speak("Photo was taken.")
 #sana şarkı önerir
-        #elif 'suggest me a song' in query:
-           #icecream = suggest_icecream()
-            #speak(f"How about: {icecream}")
+        elif 'suggest me a pop music' in query:
+            pop_musicc = suggest_popsong()
+            speak(f"How about: {pop_musicc}")
+
+        elif 'suggest me a rock music' in query:
+            rock = suggest_rocksong()
+            speak(f"How about: {rock}")
+
+        elif 'suggest me a hip pop music' in query:
+            hippop = suggest_hippopsong()
+            speak(f"How about: {hippop}")
+
+        elif 'suggest me a country music' in query:
+            country = suggest_countrysong()
+            speak(f"How about: {country}")
+
+        elif 'suggest me a jazz music' in query:
+            jazz = suggest_jazzsong()
+            speak(f"How about: {jazz}")
+
+        elif 'suggest me an electronic music' in query:
+            electronic = suggest_electroniksong()
+            speak(f"How about: {electronic}")
+
+        elif 'suggest me a klasic music' in query:
+            klasic = suggest_kalsikksong()
+            speak(f"How about: {klasic}")
+
+        elif 'suggest me a latin music' in query:
+            latin = suggest_latinsong()
+            speak(f"How about: {latin}")
+
+        elif 'suggest me a folk music' in query:
+            folk = suggest_folksong()
+            speak(f"How about: {folk}")
 
 
 if __name__ == "__main__":
     run_assistant()
 
+#CREDIT KOD_YAZARI
 #CREDIT KOD_YAZARI

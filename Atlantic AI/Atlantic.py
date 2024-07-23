@@ -3,9 +3,13 @@
 #volume çalışmıyor
 #dessert komutu  çalışmıyor
 import os
+import sounddevice as sd
+import speech_recognition as sr
+import speech_recognition_python
 import platform
 import pyautogui
 import pyttsx3
+import cv2
 import speech_recognition as sr
 import pyjokes
 import requests
@@ -19,6 +23,10 @@ from pycaw.pycaw import AudioUtilities, ISimpleAudioVolume
 from comtypes import CLSCTX_ALL
 import random
 from datetime import datetime  # Tarih ve saat için gereken modül
+
+import sounddevice as sd
+import wavio
+
 
 # Ses motoru ayarları
 engine = pyttsx3.init()
@@ -489,6 +497,45 @@ def suggest_historic_film():
     except FileNotFoundError:
         return "historicfilm.txt file not found."
 
+#KAMERA AÇMA VE ELİ GÖSTERME
+def open_camera_and_detect_hand():
+    mp_hands = mp.solutions.hands
+    hands = mp_hands.Hands()
+    mp_drawing = mp.solutions.drawing_utils
+
+    cap = cv2.VideoCapture(0)
+
+    while cap.isOpened():
+        success, image = cap.read()
+        if not success:
+            break
+
+        image = cv2.flip(image, 1)
+        image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        results = hands.process(image_rgb)
+
+        if results.multi_hand_landmarks:
+            for hand_landmarks in results.multi_hand_landmarks:
+                mp_drawing.draw_landmarks(image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+
+        cv2.imshow('Hand Detection', image)
+
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+#ses kaydı yapar
+def record_and_play_audio(duration=10):
+    fs = 20000
+    print(f"Recording for {duration} seconds...")
+    recording = sd.rec(int(duration * fs), samplerate=fs, channels=2, dtype='int16')
+    sd.wait()
+    wavio.write("output.wav", recording, fs, sampwidth=2)
+    print("Playback started...")
+    sd.play(recording, samplerate=fs)
+    sd.wait()
 
 #şarkı tercihi yapar
 #def suggest_song():
@@ -784,7 +831,13 @@ def run_assistant():
             except Exception as e:
                 speak(f"Sorry, I couldn't send the email. Error: {e}")
 
-
+        elif 'open camera' in query:
+            speak("Opening the camera.")
+            open_camera_and_detect_hand()
+#ses kayıt işlemi yapar
+        elif 'record and play' in query:
+            duration = int(input("Please enter the duration you want to record (seconds) "))
+            record_and_play_audio(duration)
 #sana şarkı önerir
         #elif 'suggest me a song' in query:
            #icecream = suggest_icecream()
@@ -793,6 +846,5 @@ def run_assistant():
 
 if __name__ == "__main__":
     run_assistant()
-
 
 #CREDIT KOD_YAZARI

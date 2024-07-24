@@ -1,0 +1,100 @@
+Vegetable Stir-Fry - Mixed vegetables sautéed with soy sauce and seasonings.
+Ratatouille - French dish of stewed vegetables like eggplant, zucchini, and tomatoes.
+Stuffed Peppers - Bell peppers filled with rice, vegetables, and sometimes cheese.
+Vegetable Curry - Mixed vegetables cooked in a spiced curry sauce.
+Cauliflower Rice - Grated cauliflower sautéed to resemble rice.
+Grilled Vegetable Skewers - Mixed vegetables skewered and grilled.
+Vegetable Lasagna - Lasagna made with layers of vegetables, tomato sauce, and cheese.
+Eggplant Parmesan - Breaded and fried eggplant slices topped with marinara and mozzarella.
+Mushroom Risotto - Creamy rice dish with sautéed mushrooms.
+Vegetable Soup - Soup made with various mixed vegetables.
+Zucchini Noodles - Spiralized zucchini served as a pasta substitute.
+Vegetable Fajitas - Sautéed bell peppers, onions, and other vegetables served in tortillas.
+Vegetable Samosas - Pastry filled with spiced potatoes and peas.
+Broccoli Casserole - Baked dish with broccoli and cheese sauce.
+Vegetable Pad Thai - Thai noodle dish with mixed vegetables and tamarind sauce.
+Caprese Salad - Salad with tomatoes, fresh mozzarella, basil, and balsamic glaze.
+Vegetable Tacos - Tacos filled with seasoned mixed vegetables.
+Gazpacho - Cold Spanish soup made with blended tomatoes and vegetables.
+Stuffed Zucchini - Zucchini boats filled with a mixture of vegetables and cheese.
+Vegetable Paella - Spanish rice dish with mixed vegetables.
+Vegetable Spring Rolls - Fresh or fried rolls filled with mixed vegetables.
+Grilled Asparagus - Asparagus spears grilled with olive oil and seasonings.
+Spinach and Feta Stuffed Mushrooms - Mushrooms filled with spinach and feta cheese.
+Vegetable Tempura - Vegetables battered and deep-fried.
+Vegetable Quesadilla - Tortilla filled with cheese and sautéed vegetables.
+Roasted Brussels Sprouts - Brussels sprouts roasted with olive oil and garlic.
+Vegetable Sushi Rolls - Sushi rolls filled with cucumber, avocado, and other vegetables.
+Vegetable Pizza - Pizza topped with various vegetables.
+Stuffed Cabbage Rolls - Cabbage leaves filled with rice and vegetable mixture.
+Vegetable Enchiladas - Tortillas filled with vegetables and topped with enchilada sauce.
+Roasted Root Vegetables - Mixed root vegetables roasted with herbs and olive oil.
+Vegetable Biryani - Spiced rice dish with mixed vegetables.
+Vegetable Pot Pie - Pastry filled with mixed vegetables in a creamy sauce.
+Vegetable Moussaka - Greek layered dish with eggplant, potatoes, and béchamel sauce.
+Vegetable Chili - Spicy stew with beans and mixed vegetables.
+Stuffed Eggplant - Eggplant halves filled with a vegetable mixture.
+Roasted Cauliflower - Cauliflower florets roasted with olive oil and spices.
+Vegetable Tagine - Moroccan stew with mixed vegetables and spices.
+Vegetable Kebabs - Skewered and grilled mixed vegetables.
+Vegetable Frittata - Italian egg-based dish with mixed vegetables.
+Stuffed Tomatoes - Tomatoes filled with rice, herbs, and vegetables.
+Vegetable Pho - Vietnamese noodle soup with vegetables.
+Vegetable Paella - Spanish rice dish with saffron and mixed vegetables.
+Vegetable Gumbo - Creole stew with mixed vegetables and okra.
+Stuffed Bell Peppers - Bell peppers filled with quinoa and mixed vegetables.
+Vegetable Pulao - Indian rice dish with mixed vegetables and spices.
+Vegetable Gyoza - Japanese dumplings filled with mixed vegetables.
+Vegetable Lo Mein - Stir-fried noodles with mixed vegetables.
+Vegetable Shepherd’s Pie - Mashed potatoes over a mixture of vegetables.
+Vegetable Burrito - Tortilla filled with rice, beans, and mixed vegetables.
+Vegetable Ratatouille - French vegetable stew with eggplant, zucchini, and tomatoes.
+Vegetable Sauté - Quick-cooked mixed vegetables in a skillet.
+Vegetable Manchurian - Indian-Chinese dish of fried vegetable balls in a tangy sauce.
+Vegetable Korma - Mild, creamy Indian curry with mixed vegetables.
+Vegetable Biryani - Spiced rice dish with mixed vegetables.
+Vegetable Vindaloo - Spicy Indian curry with mixed vegetables.
+Vegetable Udon - Japanese noodle soup with mixed vegetables.
+Vegetable Pasta Primavera - Pasta with fresh vegetables and a light sauce.
+Vegetable Stew - Hearty stew with mixed vegetables.
+Vegetable Casserole - Baked dish with mixed vegetables and cheese.
+Vegetable Tostadas - Crisp tortillas topped with refried beans and vegetables.
+Vegetable Couscous - North African dish with steamed couscous and mixed vegetables.
+Vegetable Tart - Pastry crust filled with mixed vegetables and cheese.
+Vegetable Stuffed Shells - Pasta shells filled with a vegetable mixture and baked.
+Vegetable Chow Mein - Stir-fried noodles with mixed vegetables.
+Vegetable Empanadas - Pastries filled with mixed vegetables.
+Vegetable Jambalaya - Creole rice dish with mixed vegetables.
+Vegetable Dolmas - Grape leaves stuffed with rice and mixed vegetables.
+Vegetable Fried Rice - Rice stir-fried with mixed vegetables.
+Vegetable Maki Rolls - Sushi rolls with mixed vegetables.
+Vegetable Sushi - Sushi rolls with cucumber, avocado, and other vegetables.
+Vegetable Pakoras - Indian fritters made with mixed vegetables and chickpea flour.
+Vegetable Brochettes - Skewered and grilled mixed vegetables.
+Vegetable Cabbage Rolls - Cabbage leaves filled with a vegetable and rice mixture.
+Vegetable Naan Pizza - Naan bread topped with mixed vegetables and cheese.
+Vegetable Pho - Vietnamese noodle soup with vegetables.
+Vegetable Risotto - Creamy rice dish with mixed vegetables.
+Vegetable Gumbo - Spicy stew with mixed vegetables and okra.
+Vegetable Empanadas - Pastry filled with seasoned vegetables.
+Vegetable Fajitas - Sautéed peppers, onions, and other vegetables served in tortillas.
+Vegetable Pulao - Indian spiced rice with mixed vegetables.
+Vegetable Quesadillas - Tortillas filled with cheese and mixed vegetables.
+Vegetable Kofta - Spiced vegetable balls, often served in curry sauce.
+Vegetable Sushi Rolls - Sushi rolls filled with vegetables like avocado and cucumber.
+Vegetable Soup - Hearty soup made with various mixed vegetables.
+Vegetable Spring Rolls - Fresh or fried rolls filled with mixed vegetables.
+Vegetable Tacos - Tacos filled with seasoned vegetables.
+Vegetable Tempura - Vegetables battered and deep-fried.
+Vegetable Tabbouleh - Middle Eastern salad with bulgur, parsley, and vegetables.
+Vegetable Sandwich - Sandwich filled with grilled or fresh vegetables.
+Vegetable Curry - Mixed vegetables cooked in a spiced curry sauce.
+Vegetable Kabobs - Skewered and grilled mixed vegetables.
+Vegetable Pancakes - Savory pancakes made with shredded vegetables.
+Vegetable Pasta Salad - Pasta salad with mixed vegetables and dressing.
+Vegetable Loaf - Savory loaf made with mixed vegetables and grains.
+Vegetable Omelette - Egg omelette filled with sautéed vegetables.
+Vegetable Stew - Hearty stew with mixed vegetables and broth.
+Vegetable Biryani - Spiced rice dish with mixed vegetables.
+Vegetable Pizza - Pizza topped with various vegetables.
+Vegetable Moussaka - Greek layered dish with eggplant, potatoes, and béchamel sauce.

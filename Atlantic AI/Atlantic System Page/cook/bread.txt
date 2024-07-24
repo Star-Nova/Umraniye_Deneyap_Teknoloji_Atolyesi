@@ -1,0 +1,100 @@
+Baguette - Classic French bread with a crisp crust and airy interior.
+Sourdough - Tangy bread with a chewy crust and soft crumb, made with a sourdough starter.
+Ciabatta - Italian bread with a crisp crust and an open, airy crumb.
+Focaccia - Italian flatbread, often topped with olive oil, herbs, and sometimes vegetables.
+Brioche - Rich, buttery bread with a soft and slightly sweet flavor.
+Rye Bread - Dense bread made with rye flour, often with a slightly sour taste.
+Whole Wheat Bread - Bread made from whole wheat flour, offering a denser texture and more fiber.
+Multigrain Bread - Bread made with a variety of grains and seeds, providing a nutty flavor and added nutrients.
+Pita Bread - Middle Eastern flatbread that puffs up during baking, creating a pocket for fillings.
+Naan - Soft, leavened Indian bread cooked in a tandoor oven, often served with curries.
+Challah - Sweet, braided Jewish bread, traditionally eaten during Sabbath and holidays.
+Bagel - Dense bread with a hole in the middle, usually boiled before baking for a chewy texture.
+English Muffin - Round bread with a nooks-and-crannies texture, often toasted and served with breakfast.
+Cornbread - Sweet and crumbly bread made with cornmeal, often served as a side dish.
+Pain de Mie - Soft, square-shaped French bread with a tender crumb and uniform texture.
+Panettone - Italian sweet bread with dried fruits and a light, fluffy texture, often enjoyed during the holidays.
+Pain d’épi - Decorative French bread shaped like a stalk of wheat, with a slightly crunchy crust.
+Pretzel - Salty, twisted bread with a chewy texture, often enjoyed as a snack.
+Zucchini Bread - Sweet bread made with grated zucchini, offering a moist texture and mild flavor.
+Milk Bread - Soft and slightly sweet bread made with milk, often used for sandwiches.
+Graham Bread - Bread made with graham flour, giving it a slightly nutty flavor and dense texture.
+Anadama Bread - New England bread made with cornmeal and molasses, giving it a slightly sweet taste.
+Pumpernickel - Dark, dense bread made with coarsely ground rye flour and sometimes molasses.
+Danish Rye Bread - Danish-style rye bread with a rich, nutty flavor and often mixed with seeds and grains.
+Soda Bread - Irish bread leavened with baking soda instead of yeast, resulting in a dense, crumbly texture.
+Dutch Crunch - Bread with a unique, crunchy crust created by a rice flour paste applied before baking.
+Fougasse - French bread with a flat, rustic appearance, often topped with herbs and olives.
+Batard - A French bread similar to a baguette but shorter and thicker, with a chewy crust.
+Pain Complet - French whole grain bread with a hearty, nutty flavor.
+Cuban Bread - Soft, slightly sweet bread with a crisp crust, commonly used for Cuban sandwiches.
+Tortilla - Thin, flatbread used in Mexican cuisine, made with either wheat or corn flour.
+Lavash - Thin, flatbread from the Middle East, often used as a wrap or for dipping.
+Arepa - Venezuelan and Colombian bread made from cornmeal, often served with various fillings.
+Scone - British baked good, slightly sweet or savory, often enjoyed with tea.
+Brioche Bun - Soft, buttery bun often used for burgers or sandwiches.
+Pão de Queijo - Brazilian cheese bread made with tapioca flour and cheese, offering a chewy texture.
+Kamut Bread - Bread made with Kamut flour, an ancient grain with a slightly nutty flavor.
+Chia Seed Bread - Bread made with chia seeds, adding a nutty flavor and extra nutrients.
+Spelt Bread - Bread made with spelt flour, which has a mild, nutty flavor and slightly different texture.
+Raisin Bread - Sweet bread with raisins, often enjoyed toasted with butter.
+Garlic Bread - Bread topped with garlic and butter, often served as an appetizer.
+Onion Bread - Bread with caramelized onions mixed into the dough, adding a savory flavor.
+Tomato Basil Bread - Bread flavored with tomatoes and basil, often used for sandwiches or as a side.
+Poppy Seed Bread - Sweet bread with poppy seeds, often enjoyed with a light glaze.
+Herb Bread - Bread flavored with a variety of herbs, perfect as a side or for sandwiches.
+Fig Walnut Bread - Bread with sweet figs and crunchy walnuts mixed in.
+Sesame Seed Bread - Bread topped with sesame seeds for added crunch and flavor.
+Cinnamon Raisin Bread - Sweet bread with cinnamon and raisins, often toasted for breakfast.
+Olive Bread - Bread with olives mixed into the dough, offering a savory and briny flavor.
+Sweet Potato Bread - Bread made with sweet potato, adding a moist texture and subtle sweetness.
+Sunflower Seed Bread - Bread with sunflower seeds mixed into the dough for added texture and flavor.
+Pumpkin Bread - Sweet and spiced bread made with pumpkin puree, often enjoyed during fall.
+Muesli Bread - Bread made with muesli, offering a hearty texture and added nutrients.
+Sour Cherry Bread - Bread with sour cherries mixed in, providing a sweet-tart flavor.
+Date Nut Bread - Sweet bread with dates and nuts, offering a rich and chewy texture.
+Cinnamon Swirl Bread - Bread with a cinnamon and sugar swirl throughout, often enjoyed toasted.
+Dried Apricot Bread - Bread with dried apricots mixed in for a sweet and fruity flavor.
+Lemon Poppy Seed Bread - Bread with lemon zest and poppy seeds for a bright, tangy flavor.
+Maple Oat Bread - Bread made with maple syrup and oats, providing a slightly sweet and hearty texture.
+Blueberry Muffin Bread - Bread with blueberries and muffin-like texture, perfect for breakfast.
+Sourdough Rye - Combination of sourdough and rye flour, offering a tangy and hearty bread.
+Focaccia with Rosemary - Italian flatbread topped with rosemary and olive oil.
+Rosemary Bread - Bread flavored with fresh rosemary, adding a fragrant and savory note.
+Pumpkin Seed Bread - Bread with pumpkin seeds mixed into the dough for added crunch and flavor.
+Ezekiel Bread - Bread made with sprouted grains and legumes, offering a nutritious and hearty texture.
+Sweet Brioche - Rich and sweet brioche bread, often enjoyed with fruit preserves.
+Garlic Parmesan Bread - Bread topped with garlic and Parmesan cheese for a savory treat.
+Cranberry Walnut Bread - Bread with tart cranberries and crunchy walnuts.
+Chocolate Chip Bread - Sweet bread with chocolate chips, perfect for a dessert or snack.
+Cornmeal Bread - Bread made with cornmeal for a slightly gritty texture and a corny flavor.
+Lavender Honey Bread - Bread flavored with lavender and honey for a sweet, floral taste.
+Beer Bread - Bread made with beer, offering a slightly yeasty flavor and a dense texture.
+Black Olive Bread - Bread with black olives mixed into the dough for a savory, briny flavor.
+Sweet Cinnamon Bread - Bread with a sweet cinnamon flavor, perfect for a morning treat.
+Rosemary Olive Bread - Bread with rosemary and olives, offering a savory and aromatic flavor.
+Turkish Pide - Turkish flatbread often topped with various toppings like cheese or meat.
+Coconut Bread - Bread made with coconut milk or shredded coconut for a tropical flavor.
+Pumpernickel Rye - Dense, dark rye bread with a rich, slightly sweet flavor.
+Cinnamon Raisin Swirl Bread - Bread with a cinnamon raisin swirl throughout, offering a sweet and spiced taste.
+Cheddar Chive Bread - Bread with cheddar cheese and chives mixed into the dough.
+Spicy Jalapeño Bread - Bread with jalapeños mixed in for a spicy kick.
+Apricot Almond Bread - Bread with dried apricots and almonds, offering a sweet and nutty flavor.
+Honey Wheat Bread - Bread made with honey and whole wheat flour, offering a slightly sweet taste.
+Fennel Seed Bread - Bread with fennel seeds, providing a subtle anise-like flavor.
+Lemon Thyme Bread - Bread flavored with lemon zest and fresh thyme.
+Roasted Garlic Bread - Bread with roasted garlic mixed into the dough for a mellow garlic flavor.
+Mango Coconut Bread - Bread made with mango and coconut, offering a tropical twist.
+Olive Herb Bread - Bread with olives and a blend of herbs mixed into the dough.
+Raisin Walnut Bread - Sweet bread with raisins and walnuts mixed in for texture and flavor.
+Parmesan Herb Bread - Bread with Parmesan cheese and a mix of herbs, providing a savory flavor.
+Chive Cheddar Bread - Bread with chives and cheddar cheese mixed in for a flavorful treat.
+Poppy Seed Rye Bread - Rye bread with poppy seeds, adding a slightly nutty flavor.
+Caramelized Onion Bread - Bread with caramelized onions mixed in for a sweet and savory taste.
+Pumpkin Spice Bread - Bread flavored with pumpkin spice for a fall-inspired treat.
+Walnut Fig Bread - Bread with walnuts and dried figs, offering a sweet and crunchy texture.
+Orange Cardamom Bread - Bread flavored with orange zest and cardamom for a fragrant treat.
+Pear Ginger Bread - Bread made with pear and ginger, offering a sweet and spicy flavor.
+Garlic Chive Bread - Bread with garlic and chives mixed into the dough for a savory bite.
+Honey Oat Bread - Bread made with oats and honey, providing a sweet and hearty flavor.
+Apricot Pecan Bread - Bread with dried apricots and pecans, offering a sweet and crunchy texture.

@@ -1,6 +1,3 @@
-#brightness çalışmıyor
-#volume çalışmıyor
-#dessert komutu  çalışmıyor
 import os
 import pyautogui
 import wavio
@@ -13,6 +10,7 @@ import speech_recognition as sr
 import sounddevice as sd
 import speech_recognition as sr
 import speech_recognition as sr
+import numpy as np
 import speech_recognition_python
 import wavio
 import platform
@@ -32,7 +30,8 @@ from pycaw.pycaw import AudioUtilities, ISimpleAudioVolume
 from comtypes import CLSCTX_ALL
 import random
 from datetime import datetime  # Tarih ve saat için gereken modül
-
+from gtts import gTTS
+import os
 import sounddevice as sd
 import wavio
 
@@ -113,8 +112,6 @@ def get_location_from_ip(ip_address):
         return None, None
 
 #çeviri uygulaması
-from gtts import gTTS
-import os
 
 def atlantictranslatemod():
     print("Language Selection Menu:")
@@ -271,8 +268,7 @@ def atlantictranslatemod():
         except Exception as e:
             print(f"An error occurred: {e}")
 
-if __name__ == "__main__":
-    atlantictranslatemod()
+
 
 
 def get_weather(city):
@@ -815,7 +811,35 @@ def record_and_convert_audio():
         print(f"Something went wrong: {e}")
 
 
+#Atılan fotoğarfı pixeli bulma ve ne olduğunu anlama
 
+# Sesli yanıt için pyttsx3 yapılandırması
+engine = pyttsx3.init()
+
+# YOLO modelini yükleme
+net = cv2.dnn.readNet('yolov3.weights', 'yolov3.cfg')
+layer_names = net.getLayerNames()
+output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
+
+# Nesne isimleri
+classes = []
+with open('coco.names', 'r') as f:
+    classes = [line.strip() for line in f.readlines()]
+
+def describe_image_by_pixels(image_path):
+    # Resmi yükle
+    image = cv2.imread(image_path)
+    if image is None:
+        print("Resim dosyası açılamadı veya mevcut değil.")
+        return
+
+    # Resmin boyutlarını al
+    height, width, channels = image.shape
+    print(f"Resmin boyutları: {width}x{height} piksel, {channels} kanal")
+
+# Kullanıcıdan dosya adı al
+image_file = input("Dosyanızın ismi nedir? (örneğin, deneme.png): ")
+describe_image_by_pixels(image_file)
 
 #KAMERA AÇMA VE ELİ GÖSTERME
 def open_camera_and_detect_hand():
@@ -1217,10 +1241,11 @@ def run_assistant():
         elif 'translate' in query:
             speak(f"Okay: {atlantictranslatemod()}")
 
-
+#atılan fotoğrafların pixelini bulma ve fotoğrafın ne olduğunu anlama
+        elif 'apple' in query:
+            speak(f"Okay: {describe_image_by_pixels()}")
 
 if __name__ == "__main__":
     run_assistant()
 
-#CREDIT KOD_YAZARI
 #CREDIT KOD_YAZARI

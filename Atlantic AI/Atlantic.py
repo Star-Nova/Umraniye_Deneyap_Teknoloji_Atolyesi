@@ -813,33 +813,36 @@ def record_and_convert_audio():
 
 #Atılan fotoğarfı pixeli bulma ve ne olduğunu anlama
 
-# Sesli yanıt için pyttsx3 yapılandırması
-engine = pyttsx3.init()
+import cv2
+import pyttsx3
 
-# YOLO modelini yükleme
-net = cv2.dnn.readNet('yolov3.weights', 'yolov3.cfg')
-layer_names = net.getLayerNames()
-output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
+def speak(text):
+    """
+    Verilen metni sesli olarak okur.
+    """
+    engine = pyttsx3.init()
+    engine.say(text)
+    engine.runAndWait()
 
-# Nesne isimleri
-classes = []
-with open('coco.names', 'r') as f:
-    classes = [line.strip() for line in f.readlines()]
+def get_photo_dimensions(file_path):
+    """
+    Belirtilen dosyayı okuyarak boyutlarını ekrana ve sesli olarak yazdırır.
+    """
+    image = cv2.imread(file_path)
 
-def describe_image_by_pixels(image_path):
-    # Resmi yükle
-    image = cv2.imread(image_path)
-    if image is None:
-        print("Resim dosyası açılamadı veya mevcut değil.")
-        return
+    if image is not None:
+        height, width = image.shape[:2]
+        print(f"Image dimensions: Width: {width}, Height: {height}")
+        speak(f"The image dimensions are {width} pixels wide and {height} pixels tall.")
+    else:
+        print("Unable to read the image file.")
+        speak("Unable to read the image file.")
 
-    # Resmin boyutlarını al
-    height, width, channels = image.shape
-    print(f"Resmin boyutları: {width}x{height} piksel, {channels} kanal")
+def main():
+    # Kullanıcıdan dosya adını al
+    file_path = input("Enter the file name (e.g., 'example.png'): ")
+    get_photo_dimensions(file_path)
 
-# Kullanıcıdan dosya adı al
-image_file = input("Dosyanızın ismi nedir? (örneğin, deneme.png): ")
-describe_image_by_pixels(image_file)
 
 #KAMERA AÇMA VE ELİ GÖSTERME
 def open_camera_and_detect_hand():
@@ -951,6 +954,33 @@ def chat_english():
         speak("Books can be quite engaging. Are you reading any interesting books right now?")
     else:
         speak("That sounds interesting! Is there anything else you'd like to discuss?")
+
+#telefonla arama
+from twilio.rest import Client
+
+
+def make_call(to_phone_number, from_phone_number, twilio_sid, twilio_auth_token):
+    # Twilio client'ını oluştur
+    client = Client(twilio_sid, twilio_auth_token)
+
+    # Arama yap
+    call = client.calls.create(
+        to=to_phone_number,
+        from_=from_phone_number,
+        url="http://demo.twilio.com/docs/voice.xml"  # Bu URL, arama sırasında çalınacak ses dosyasının URL'sidir
+    )
+
+    return call.sid
+
+
+# Örnek kullanım:
+twilio_sid = 'YOUR_TWILIO_SID'
+twilio_auth_token = 'YOUR_TWILIO_AUTH_TOKEN'
+from_phone_number = '+1234567890'  # Twilio'dan alınan numara
+to_phone_number = '+0987654321'  # Aranacak numara
+
+call_sid = make_call(to_phone_number, from_phone_number, twilio_sid, twilio_auth_token)
+print(f'Arama yapıldı, SID: {call_sid}')
 
 
 def run_assistant():
@@ -1242,8 +1272,8 @@ def run_assistant():
             speak(f"Okay: {atlantictranslatemod()}")
 
 #atılan fotoğrafların pixelini bulma ve fotoğrafın ne olduğunu anlama
-        elif 'apple' in query:
-            speak(f"Okay: {describe_image_by_pixels()}")
+        elif 'photo size' in query:
+            speak(f"Okay: {main()}")
 
 if __name__ == "__main__":
     run_assistant()

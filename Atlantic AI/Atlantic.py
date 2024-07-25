@@ -1275,6 +1275,10 @@ def run_assistant():
         elif 'photo size' in query:
             speak(f"Okay: {main()}")
 
+#telefonla arama
+        elif 'apple' in query:
+            speak(f"Okay calling: {make_call()}")
+
 if __name__ == "__main__":
     run_assistant()
 

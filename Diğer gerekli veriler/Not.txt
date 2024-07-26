@@ -5,3 +5,4 @@ loan.csv dosyası _18_bank_loan.py için gereklidir
 car.csv dosyası _17_bayes.py için gereklidir
 housing.csv dosyası _7_pandas.py ve  _9_pandas_and_matplotlib.py için gereklidir
 haarcascade_frontalface_default.xml dosyası _26_face_detect.py ve _27_face_detect_realtime.py için gereklidir
+Heartbeat_Sound zip dosyası _46_RNN.py dosyası için size lazım olacaktır.

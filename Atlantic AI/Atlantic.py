@@ -2,38 +2,101 @@ import os
 import pyautogui
 import wavio
 from gtts import gTTS
-import os
 import sounddevice as sd
-from PIL import Image
 import datetime
-import speech_recognition as sr
-import sounddevice as sd
-import speech_recognition as sr
+from twilio.rest import Client
+import cv2
+import pyttsx3
+import httpx
+import math
 import speech_recognition as sr
 import numpy as np
-import speech_recognition_python
-import wavio
-import platform
-import pyautogui
-import pyttsx3
-import cv2
-import speech_recognition as sr
+from PIL import Image, ImageDraw, ImageFont
 import pyjokes
 import requests
-import smtplib, ssl
+import smtplib
+import ssl
 import time
 import wikipedia
 import webbrowser
-from PIL import Image
 from googletrans import Translator
 from pycaw.pycaw import AudioUtilities, ISimpleAudioVolume
 from comtypes import CLSCTX_ALL
 import random
-from datetime import datetime  # Tarih ve saat için gereken modül
-from gtts import gTTS
-import os
-import sounddevice as sd
-import wavio
+from datetime import datetime
+import calculate
+import email
+import location
+import translate
+import weather
+import wait
+import brightness
+import volume
+import screenshot
+import hobby
+import alldishes
+import allgame
+import allfilm
+import allsong
+import record_and_convert_audio
+import pixel
+import camera_and_hand
+import recor_and_play
+import take_photo
+import solve_code_problem
+import tell_time
+import english
+import make_call
+
+
+import calculate
+import email
+import location
+import translate
+import weather
+import wait
+import brightness
+import volume
+import screenshot
+import hobby
+import alldishes
+import allgame
+import allfilm
+import allsong
+import record_and_convert_audio
+import pixel
+import camera_and_hand
+import recor_and_play
+import take_photo
+import solve_code_problem
+import tell_time
+import english
+import make_call
+#gerekli dosyaları import ederiz
+
+import calculate
+import email
+import location
+import translate
+import weather
+import wait
+import brightness
+import volume
+import screenshot
+import hobby
+import alldishes
+import allgame
+import allfilm
+import allsong
+import record_and_convert_audio
+import pixel
+import camera_and_hand
+import recor_and_play
+import take_photo
+import solve_code_problem
+import tell_time
+import english
+import make_call
 
 
 # Ses motoru ayarları
@@ -75,912 +138,212 @@ def clean_query(query):
     return query
 
 
-def calculate(expression):
-    try:
-        result = eval(expression)
-        return result
-    except Exception as e:
-        print(f"Error during calculation: {e}")
-        return None
 
 
-def send_email(sender_email, sender_password, receiver_email, subject, body):
-    smtp_server = "smtp.gmail.com"
-    port = 587
-
-    message = f"Subject: {subject}\n\n{body}"
-
-    context = ssl.create_default_context()
-    with smtplib.SMTP(smtp_server, port) as server:
-        server.starttls(context=context)
-        server.login(sender_email, sender_password)
-        server.sendmail(sender_email, receiver_email, message)
+#Hesap makinesi (calculate)
 
 
-def get_location_from_ip(ip_address):
-    ipstack_api_key = "YOUR_IPSTACK_API_KEY"
-    base_url = f"http://api.ipstack.com/{ip_address}?access_key={ipstack_api_key}"
 
-    response = requests.get(base_url)
-    data = response.json()
+#email
 
-    if 'city' in data and 'region_name' in data:
-        city = data['city']
-        region = data['region_name']
-        return city, region
-    else:
-        return None, None
 
-#çeviri uygulaması
+#location
 
-def atlantictranslatemod():
-    print("Language Selection Menu:")
-    print("1. Türkçe")
-    print("2. English")
-    print("3. Español")
-    print("4. Русский (Russian)")
-    print("5. Italiano")
-    print("6. Français")
-    print("7. 中文 (Chinese)")
-    print("8. 한국어 (Korean)")
-    print("9. Português (Portuguese)")
-    print("10. 日本語 (Japanese)")
-    print("11. العربية (Arabic)")
-    print("12. हिन्दी (Hindi)")
-    print("13. Kiswahili (Swahili)")
-    print("14. Svenska (Swedish)")
-    print("15. Dansk (Danish)")
-    print("16. Deutsch (German)")
-    print("17. বাংলা (Bengali)")
-    print("18. فارسی (Farsi)")
-    print("19. Javanese")
-    print("20. Catalan")
-    print("21. Croatian")
-    print("22. Czech")
-    print("23. Serbian")
-    print("24. Polish")
-    print("25. Hungarian")
-    print("26. Malay")
-    print("27. Filipino")
-    print("28. Vietnamese")
-    print("29. Nepali")
-    print("30. Thai")
-    print("31. Slovak")
-    print("32. Burmese")
-    print("33. Albanian")
-    print("34. Macedonian")
-    print("35. Estonian")
-    print("36. Latvian")
-    print("37. Lithuanian")
-    print("38. Icelandic")
-    print("39. Manx")
-    print("40. Welsh")
-    print("41. Slovenian")
-    print("42. Mongolian")
-    print("43. Somali")
-    print("44. Kurdish")
-    print("45. Punjabi")
-    print("46. Tatar")
-    print("47. Yiddish")
-    print("48. Hawaiian")
-    print("49. Samoan")
-    print("50. Maltese")
-    print("51. Belarusian")
-    print("52. Uighur")
-    print("53. Kazakh")
-    print("0. Exit")
 
-    lang_map = {
-        "1": "tr",
-        "2": "en",
-        "3": "es",
-        "4": "ru",
-        "5": "it",
-        "6": "fr",
-        "7": "zh-CN",
-        "8": "ko",
-        "9": "pt",
-        "10": "ja",
-        "11": "ar",
-        "12": "hi",
-        "13": "sw",
-        "14": "sv",
-        "15": "da",
-        "16": "de",  # Added German
-        "17": "bn",
-        "18": "fa",
-        "19": "jv",
-        "20": "ca",
-        "21": "hr",
-        "22": "cs",
-        "23": "sr",
-        "24": "pl",
-        "25": "hu",
-        "26": "ms",
-        "27": "tl",
-        "28": "vi",
-        "29": "ne",
-        "30": "th",
-        "31": "sk",
-        "32": "my",
-        "33": "sq",
-        "34": "mk",
-        "35": "et",
-        "36": "lv",
-        "37": "lt",
-        "38": "is",
-        "39": "gmh",
-        "40": "cy",
-        "41": "sl",
-        "42": "mn",
-        "43": "so",
-        "44": "ku",
-        "45": "pa",
-        "46": "tt",
-        "47": "yi",
-        "48": "haw",
-        "49": "sm",
-        "50": "mt",
-        "51": "be",
-        "52": "ug",
-        "53": "kk"
-    }
-
-    while True:
-        choice = input("Please select a language by entering the corresponding number (0 to exit): ")
-
-        if choice == "0":
-            print("Exiting the program. Goodbye!")
-            break
-
-        lang = lang_map.get(choice)
-
-        if not lang:
-            print("Lütfen geçerli bir dil seçiniz.")
-            continue
-
-        text = input("Enter the text you want to convert to speech:\n")
-
-        try:
-            translate = gTTS(text=text, lang=lang)  # Convert text to speech
-            file_name = "texttospeech.mp3"
-            translate.save(file_name)  # Save the audio file
-
-            print("Playing the converted speech...")
-            os.system(file_name)  # Play the audio file
-
-            # Option to replay or delete the file
-            while True:
-                replay = input("Do you want to replay the audio? (yes/no): ").strip().lower()
-                if replay == 'yes':
-                    os.system(file_name)
-                elif replay == 'no':
-                    break
-                else:
-                    print("Invalid input. Please enter 'yes' or 'no'.")
-
-            # Clean up: Option to delete the file after use
-            cleanup = input("Do you want to delete the audio file? (yes/no): ").strip().lower()
-            if cleanup == 'yes':
-                os.remove(file_name)
-                print("Audio file deleted.")
-
-        except Exception as e:
-            print(f"An error occurred: {e}")
+#çeviri uygulaması (translate)
 
 
 
 
-def get_weather(city):
-    api_key = "YOUR_OPENWEATHERMAP_API_KEY"
-    base_url = "http://api.openweathermap.org/data/2.5/weather?"
-    complete_url = f"{base_url}q={city}&appid={api_key}&units=metric"
-
-    response = requests.get(complete_url)
-    data = response.json()
-
-    if data["cod"] != "404":
-        main = data["main"]
-        weather = data["weather"][0]
-        temp = main["temp"]
-        description = weather["description"]
-        weather_report = f"The temperature in {city} is {temp} degrees Celsius with {description}."
-        return weather_report
-    else:
-        return "City not found."
+#weather (hava durumu)
 
 
-def wait(duration, unit):
-    if unit == "minutes":
-        time.sleep(duration * 60)
-    elif unit == "seconds":
-        time.sleep(duration)
-    speak(f"Waited for {duration} {unit}")
+
+#wait
 
 
-def set_brightness(level):
-    system = platform.system()
-    if system == 'Windows':
-        if level == 'high':
-            value = 100
-        elif level == 'medium':
-            value = 50
-        elif level == 'low':
-            value = 0
-        else:
-            return
-        # Simulated brightness control
-        print(f"Set brightness to {value}%")
-    elif system == 'Darwin':
-        if level == 'high':
-            value = 100
-        elif level == 'medium':
-            value = 50
-        elif level == 'low':
-            value = 0
-        else:
-            return
-        os.system(
-            f"osascript -e 'tell application \"System Events\" to set the value of the first slider of the first group of the first window of (first process whose frontmost is true) to {value}'")
-    elif system == 'Linux':
-        if level == 'high':
-            value = 1.0
-        elif level == 'medium':
-            value = 0.5
-        elif level == 'low':
-            value = 0.1
-        else:
-            return
-        os.system(f"xrandr --output eDP-1 --brightness {value}")
+#brightness
+
+#volume
 
 
-def set_volume(level):
-    system = platform.system()
-    if system == 'Windows':
-        if level == 'high':
-            value = 1.0
-        elif level == 'medium':
-            value = 0.5
-        elif level == 'low':
-            value = 0.0
-        else:
-            return
-        devices = AudioUtilities.GetSpeakers()
-        interface = devices.Activate(ISimpleAudioVolume._iid_, CLSCTX_ALL, None)
-        volume = interface.QueryInterface(ISimpleAudioVolume)
-        volume.SetMasterVolume(value, None)
-    elif system == 'Darwin':
-        if level == 'high':
-            value = 100
-        elif level == 'medium':
-            value = 50
-        elif level == 'low':
-            value = 0
-        else:
-            return
-        os.system(f"osascript -e 'set volume output volume {value}'")
-    elif system == 'Linux':
-        if level == 'high':
-            value = 100
-        elif level == 'medium':
-            value = 50
-        elif level == 'low':
-            value = 0
-        else:
-            return
-        os.system(f"pactl set-sink-volume 0 {value}%")
+#screenshot
 
 
-def take_screenshot(filename):
-    screenshot = pyautogui.screenshot()
-    screenshot.save(filename)
-    img = Image.open(filename)
-    img.show()
+#hobby
+
+#alldishes
 
 
-def suggest_hobby():
-    try:
-        with open('hobby.txt', 'r') as file:
-            hobbies = file.readlines()
-            if hobbies:
-                hobby = random.choice(hobbies).strip()
-                return hobby
-            else:
-                return "Hobby list is empty."
-    except FileNotFoundError:
-        return "hobby.txt file not found."
+#allgame
 
 
-def suggest_dessert():
-    try:
-        with open('Desserts.txt', 'r') as file:
-            desserts = file.readlines()
-            if desserts:
-                dessert = random.choice(desserts).strip()
-                webbrowser.open(f"https://www.youtube.com/results?search_query={dessert}")
-                return dessert
-            else:
-                return "Dessert list is empty."
-    except FileNotFoundError:
-        return "Desserts.txt file not found."
-
-
-def suggest_meatdishes():
-    try:
-        with open('meatdishes.txt', 'r') as file:
-            meatdishes = file.readlines()
-            if meatdishes:
-                meatdish = random.choice(meatdishes).strip()
-                return meatdish
-            else:
-                return "Meat Dishes list is empty."
-    except FileNotFoundError:
-        return "meatdishes.txt file not found."
-
-
-def suggest_vegetabledishes():
-    try:
-        with open('vegetabledishes.txt', 'r') as file:
-            vegetabledishes = file.readlines()
-            if vegetabledishes:
-                vegetabledish = random.choice(vegetabledishes).strip()
-                return vegetabledish
-            else:
-                return "Vegetable Dishes list is empty."
-    except FileNotFoundError:
-        return "vegetabledishes.txt file not found."
-
-
-def suggest_soup():
-    try:
-        with open('soup.txt', 'r') as file:
-            soups = file.readlines()
-            if soups:
-                soup = random.choice(soups).strip()
-                return soup
-            else:
-                return "Soup list is empty."
-    except FileNotFoundError:
-        return "soup.txt file not found."
-
-
-def suggest_bread():
-    try:
-        with open('bread.txt', 'r') as file:
-            breads = file.readlines()
-            if breads:
-                bread = random.choice(breads).strip()
-                return bread
-            else:
-                return "Bread list is empty."
-    except FileNotFoundError:
-        return "bread.txt file not found."
-
-
-def suggest_salad():
-    try:
-        with open('salad.txt', 'r') as file:
-            salads = file.readlines()
-            if salads:
-                salad = random.choice(salads).strip()
-                return salad
-            else:
-                return "Salad list is empty."
-    except FileNotFoundError:
-        return "salad.txt file not found."
-
-
-def suggest_hamurisleri():
-    try:
-        with open('hamurisleri.txt', 'r') as file:
-            hamurisleri = file.readlines()
-            if hamurisleri:
-                hamur = random.choice(hamurisleri).strip()
-                return hamur
-            else:
-                return "Hamur işleri listesi boş."
-    except FileNotFoundError:
-        return "hamurisleri.txt dosyası bulunamadı."
-
-
-def suggest_icecream():
-    try:
-        with open('icecream.txt', 'r') as file:
-            icecreams = file.readlines()
-            if icecreams:
-                icecream = random.choice(icecreams).strip()
-                return icecream
-            else:
-                return "Ice cream list is empty."
-    except FileNotFoundError:
-        return "icecream.txt file not found."
 
 #oyun tercihi yapar
     #savaş oyunu tercihi
-def suggest_wargame():
-    try:
-        with open('wargame.txt', 'r') as file:
-            wargame = file.readlines()
-            if wargame:
-                wargames = random.choice(wargame).strip()
-                return wargames
-            else:
-                return "War Game list is empty."
-    except FileNotFoundError:
-        return "wargame.txt file not found."
+
 
     #hikaye oyunu
-def suggest_storygame():
-    try:
-        with open('storygame.txt', 'r') as file:
-            storygame = file.readlines()
-            if storygame:
-                storygames = random.choice(storygame).strip()
-                return storygames
-            else:
-                return "Story Game list is empty."
-    except FileNotFoundError:
-        return "storygame.txt file not found."
+
 
     #yaratıcılık oyunu
-def suggest_creativitygame():
-    try:
-        with open('creativitygame.txt', 'r') as file:
-            creativitygame = file.readlines()
-            if creativitygame:
-                creativitygames = random.choice(creativitygame).strip()
-                return creativitygames
-            else:
-                return "Creativity Game list is empty."
-    except FileNotFoundError:
-        return "creativitygame.txt file not found."
+
+
+
+
+
+
+#allfilm
 
 #film tercihi yapar
 
     #aksiyon film önerir
-def suggest_actionfilm():
-    try:
-        with open('actionfilm.txt', 'r') as file:
-            actionfilm = file.readlines()
-            if actionfilm:
-                actionfilms = random.choice(actionfilm).strip()
-                return actionfilms
-            else:
-                return "Action Film list is empty."
-    except FileNotFoundError:
-        return "actionfilm.txt file not found."
+
 
     #komedi film önerir
-def suggest_comedyfilm():
-    try:
-        with open('comedyfilm.txt', 'r') as file:
-            comedyfilm = file.readlines()
-            if comedyfilm:
-                comedyfilms = random.choice(comedyfilm).strip()
-                return comedyfilms
-            else:
-                return "Comedy film list is empty."
-    except FileNotFoundError:
-        return "comedyfilm.txt file not found."
+
 
     # Drama tarzı film önerir
-def suggest_dramafilm():
-    try:
-        with open('dramafilm.txt', 'r') as file:
-            dramafilm = file.readlines()
-            if dramafilm:
-                dramafilms = random.choice(dramafilm).strip()
-                return dramafilms
-            else:
-                return "Drama Film list is empty."
-    except FileNotFoundError:
-        return "dramafilm.txt file not found."
+
 
     #korku filmi önerir
-def suggest_horrorfilm():
-    try:
-        with open('horrorfilm.txt', 'r') as file:
-            horrorfilm = file.readlines()
-            if horrorfilm:
-                horrorfilms = random.choice(horrorfilm).strip()
-                return horrorfilms
-            else:
-                return "Horror Film list is empty."
-    except FileNotFoundError:
-        return "horrorfilm.txt file not found."
+
 
     #bilim kurgu filmi önerir
-def suggest_science_fiction_film():
-    try:
-        with open('sciencefictionfilm.txt', 'r') as file:
-            science_fiction_film = file.readlines()
-            if science_fiction_film:
-                science_fiction_films = random.choice(science_fiction_film).strip()
-                return science_fiction_films
-            else:
-                return "Science fiction film list is empty."
-    except FileNotFoundError:
-        return "sciencefictionfilm.txt file not found."
+
+
 
     #romantik tarzı filmler önerir
-def suggest_romantic_film():
-    try:
-        with open('romanticfilm.txt', 'r') as file:
-            romantic_film = file.readlines()
-            if romantic_film:
-                romantic_films = random.choice(romantic_film).strip()
-                return romantic_films
-            else:
-                return "Romantic Film list is empty."
-    except FileNotFoundError:
-        return "romanticfilm.txt file not found."
+
 
    #Belgesel tarzı
-def suggest_documentary_film():
-    try:
-        with open('documentaryfilm.txt', 'r') as file:
-            documentary_film = file.readlines()
-            if documentary_film:
-                documentary_films = random.choice(documentary_film).strip()
-                return documentary_films
-            else:
-                return "Documentary Film list is empty."
-    except FileNotFoundError:
-        return "documentaryfilm.txt file not found."
+
+
 
     #animasyon tarzı film
-def suggest_animation_film():
-    try:
-        with open('animationfilm.txt', 'r') as file:
-            animation_film = file.readlines()
-            if animation_film:
-                animation_films = random.choice(animation_film).strip()
-                return animation_films
-            else:
-                return "Animation Film list is empty."
-    except FileNotFoundError:
-        return "animationfilm.txt file not found."
+
 
     #tarihi film
-def suggest_historic_film():
-    try:
-        with open('historicfilm.txt', 'r') as file:
-            historic_film = file.readlines()
-            if historic_film:
-                historic_films = random.choice(historic_film).strip()
-                return historic_films
-            else:
-                return "Historical Film list is empty."
-    except FileNotFoundError:
-        return "historicfilm.txt file not found."
 
+
+
+
+#allsong
 #şarkı tercihi yapar
 #pop music
-def suggest_popsong():
-    try:
-        with open('pop_music.txt', 'r') as file:
-            pop_music = file.readlines()
-            if pop_music:
-                pop_musics = random.choice(pop_music).strip()
-                return pop_musics
-            else:
-                return "Pop Music list is empty."
-    except FileNotFoundError:
-        return "pop_music.txt file not found."
+
 
 #rock music
-def suggest_rocksong():
-    try:
-        with open('rock_music.txt', 'r') as file:
-            rock_music = file.readlines()
-            if rock_music:
-                rock_musics = random.choice(rock_music).strip()
-                return rock_musics
-            else:
-                return "Rock Music list is empty."
-    except FileNotFoundError:
-        return "rock_music.txt file not found."
 
 #hippop music
-def suggest_hippopsong():
-    try:
-        with open('hippop_music.txt', 'r') as file:
-            hippop_music = file.readlines()
-            if hippop_music:
-                hippop_musics = random.choice(hippop_music).strip()
-                return hippop_musics
-            else:
-                return "Hip-Pop Music list is empty."
-    except FileNotFoundError:
-        return "hippop_music.txt file not found."
+
 
 #country music
-def suggest_countrysong():
-    try:
-        with open('country_music.txt', 'r') as file:
-            country_music = file.readlines()
-            if country_music:
-                country_musics = random.choice(country_music).strip()
-                return country_musics
-            else:
-                return "Country Music list is empty."
-    except FileNotFoundError:
-        return "country_music.txt file not found."
+
 
 #jazz music
-def suggest_jazzsong():
-    try:
-        with open('jazz_music.txt', 'r') as file:
-            jazz_music = file.readlines()
-            if jazz_music:
-                jazz_musics = random.choice(jazz_music).strip()
-                return jazz_musics
-            else:
-                return "Jazz Music list is empty."
-    except FileNotFoundError:
-        return "jazz_music.txt file not found."
 
 #electronik music
-def suggest_electroniksong():
-    try:
-        with open('electronic_music.txt', 'r') as file:
-            electronic_music = file.readlines()
-            if electronic_music:
-                electronic_musics = random.choice(electronic_music).strip()
-                return electronic_musics
-            else:
-                return "Electronic Music list is empty."
-    except FileNotFoundError:
-        return "electronic_music.txt file not found."
+
 
 #klasik music
-def suggest_kalsikksong():
-    try:
-        with open('klasic_music.txt', 'r') as file:
-            kalsik_music = file.readlines()
-            if kalsik_music:
-                kalsik_musics = random.choice(kalsik_music).strip()
-                return kalsik_musics
-            else:
-                return "Klasic Music list is empty."
-    except FileNotFoundError:
-        return "klasic_music.txt file not found."
+
 
 #latin music
-def suggest_latinsong():
-    try:
-        with open('latin_music.txt', 'r') as file:
-            latin_music = file.readlines()
-            if latin_music:
-                latin_musics = random.choice(latin_music).strip()
-                return latin_musics
-            else:
-                return "Latin Music list is empty."
-    except FileNotFoundError:
-        return "latin_music.txt file not found."
+
 
 #folk music
-def suggest_folksong():
-    try:
-        with open('folk_music.txt', 'r') as file:
-            folk_music = file.readlines()
-            if folk_music:
-                folk_musics = random.choice(folk_music).strip()
-                return folk_musics
-            else:
-                return "Latin Music list is empty."
-    except FileNotFoundError:
-        return "folk_music.txt file not found."
 
 
 
+#record_and_convert_audio
 #Sesi metne çevirir
-def record_and_convert_audio():
-    # Recognizer nesnesi oluşturma
-    recognizer = sr.Recognizer()
-
-    try:
-        # Kullanıcıdan kayıt süresini al
-        duration = int(input("How long do you want to record audio for? (in seconds): "))
-        print("Starting audio recording from microphone...")
-
-        # Mikrofonla kayıt yap
-        with sr.Microphone() as source:
-            # Ortam gürültüsüne uyum sağla
-            recognizer.adjust_for_ambient_noise(source, duration=0.5)
-
-            # Belirtilen süre kadar dinle
-            print("You can start talking...")
-            audio = recognizer.listen(source, timeout=duration)
-
-        print("Voice recording completed. Converts voice to text...")
-
-        # Google Web Speech API kullanarak ses metne çevir
-        text = recognizer.recognize_google(audio, language="en")
-
-        print("Audio transcribed:")
-        print(text)
-
-    except sr.UnknownValueError:
-        print("Sorry, I couldn't understand the sound.")
-    except sr.RequestError as e:
-        print(f"Google Web Speech API service could not be reached; {e}")
-    except ValueError:
-        print("Please enter a valid number.")
-    except Exception as e:
-        print(f"Something went wrong: {e}")
 
 
+
+#pixel
 #Atılan fotoğarfı pixeli bulma ve ne olduğunu anlama
 
-import cv2
-import pyttsx3
-
-def speak(text):
-    """
-    Verilen metni sesli olarak okur.
-    """
-    engine = pyttsx3.init()
-    engine.say(text)
-    engine.runAndWait()
-
-def get_photo_dimensions(file_path):
-    """
-    Belirtilen dosyayı okuyarak boyutlarını ekrana ve sesli olarak yazdırır.
-    """
-    image = cv2.imread(file_path)
-
-    if image is not None:
-        height, width = image.shape[:2]
-        print(f"Image dimensions: Width: {width}, Height: {height}")
-        speak(f"The image dimensions are {width} pixels wide and {height} pixels tall.")
-    else:
-        print("Unable to read the image file.")
-        speak("Unable to read the image file.")
-
-def main():
-    # Kullanıcıdan dosya adını al
-    file_path = input("Enter the file name (e.g., 'example.png'): ")
-    get_photo_dimensions(file_path)
 
 
+#camera_and_hand
 #KAMERA AÇMA VE ELİ GÖSTERME
-def open_camera_and_detect_hand():
-    mp_hands = mp.solutions.hands
-    hands = mp_hands.Hands()
-    mp_drawing = mp.solutions.drawing_utils
 
-    cap = cv2.VideoCapture(0)
 
-    while cap.isOpened():
-        success, image = cap.read()
-        if not success:
-            break
 
-        image = cv2.flip(image, 1)
-        image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        results = hands.process(image_rgb)
 
-        if results.multi_hand_landmarks:
-            for hand_landmarks in results.multi_hand_landmarks:
-                mp_drawing.draw_landmarks(image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
-
-        cv2.imshow('Hand Detection', image)
-
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-
-    cap.release()
-    cv2.destroyAllWindows()
-
+#recor_and_play
 #ses kaydı yapar
-def record_and_play_audio(duration=10):
-    fs = 20000
-    print(f"Recording for {duration} seconds...")
-    recording = sd.rec(int(duration * fs), samplerate=fs, channels=2, dtype='int16')
-    sd.wait()
-    wavio.write("output.wav", recording, fs, sampwidth=2)
-    print("Playback started...")
-    sd.play(recording, samplerate=fs)
-    sd.wait()
+
+
+#take_photo
 #fotoğrafını çeker
-def capture_photo():
-    # Kamerayı aç
-    cap = cv2.VideoCapture(0)
-
-    if not cap.isOpened():
-        print("Kamera açılamadı.")
-        return
-
-    # Kamera görüntüsünü al
-    ret, frame = cap.read()
-    if ret:
-        # Dosya adını oluştur
-        timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        photo_filename = f"photo_{timestamp}.png"
-        # Fotoğrafı kaydet
-        cv2.imwrite(photo_filename, frame)
-        print(f"Fotoğraf kaydedildi: {photo_filename}")
-    else:
-        print("Fotoğraf alınamadı.")
-
-    # Kamerayı kapat
-    cap.release()
-    cv2.destroyAllWindows()
 
 
+
+#solve_code_problem
 #kodlarını çözer
-def solve_code_problem():
-    speak("Please describe the coding problem you are facing.")
-    problem = listen()
-    speak("I will try to help with that coding problem.")
-    # Implement the logic to solve the problem or provide suggestions
-    # This could involve searching online or providing code snippets
 
+
+#tell_time
 #tarihi söyler
-def tell_time():
-    now = datetime.now()
-    current_time = now.strftime("%H:%M:%S")
-    speak(f"The current time is {current_time}")
 
+
+
+
+#chat_english
 #sohbet kodları
-def chat_english():
-    speak("Sure, let's chat. How are you today?")
-    user_response = listen()
 
-    if user_response in ["good", "fine", "great", "okay"]:
-        speak("I'm glad to hear that! What have you been up to lately?")
-    elif user_response in ["not good", "bad", "not great"]:
-        speak("I'm sorry to hear that. Is there anything specific that's bothering you?")
-    else:
-        speak("I see. What would you like to talk about today?")
 
-    user_response = listen()
-    if "weather" in user_response:
-        speak("The weather is quite interesting today. Do you like the current weather?")
-    elif "hobbies" in user_response:
-        speak("Hobbies are a great way to relax. What hobbies do you enjoy?")
-    elif "news" in user_response:
-        speak("There are many interesting news stories today. Are you following any particular news?")
-    elif "movies" in user_response:
-        speak("Movies can be a lot of fun. Do you have a favorite movie or genre?")
-    elif "music" in user_response:
-        speak("Music is a great way to lift your mood. What kind of music do you like?")
-    elif "food" in user_response:
-        speak("Food can be so enjoyable. Do you have a favorite dish or type of cuisine?")
-    elif "travel" in user_response:
-        speak("Traveling opens up new experiences. Where would you like to travel next?")
-    elif "books" in user_response:
-        speak("Books can be quite engaging. Are you reading any interesting books right now?")
-    else:
-        speak("That sounds interesting! Is there anything else you'd like to discuss?")
 
+
+
+#make_call
 #telefonla arama
-from twilio.rest import Client
+
+import webbrowser
 
 
-def make_call(to_phone_number, from_phone_number, twilio_sid, twilio_auth_token):
-    # Twilio client'ını oluştur
-    client = Client(twilio_sid, twilio_auth_token)
+def open_browser(site_name):
+    browser_urls = {
+        "bing": "https://www.bing.com",
+        "opera": "https://www.opera.com",
+        "chrome": "https://www.google.com/chrome/",
+        "safari": "https://www.apple.com/safari/",
+        "firefox": "https://www.mozilla.org/firefox/",
+        "google": "https://www.google.com"
+    }
 
-    # Arama yap
-    call = client.calls.create(
-        to=to_phone_number,
-        from_=from_phone_number,
-        url="http://demo.twilio.com/docs/voice.xml"  # Bu URL, arama sırasında çalınacak ses dosyasının URL'sidir
-    )
-
-    return call.sid
+    if site_name in browser_urls:
+        webbrowser.open(browser_urls[site_name])
+        return True
+    else:
+        return False
 
 
-# Örnek kullanım:
-twilio_sid = 'YOUR_TWILIO_SID'
-twilio_auth_token = 'YOUR_TWILIO_AUTH_TOKEN'
-from_phone_number = '+1234567890'  # Twilio'dan alınan numara
-to_phone_number = '+0987654321'  # Aranacak numara
+def open_social_media(site_name):
+    social_media_urls = {
+        "facebook": "https://www.facebook.com/",
+        "instagram": "https://www.instagram.com/",
+        "linkedin": "https://www.linkedin.com/",
+        "x": "https://x.com/",  # Twitter is rebranded as X
+        "twitter": "https://x.com/",
+        "whatsapp": "https://www.whatsapp.com",
+        "whatsapp web": "https://web.whatsapp.com",
+        "reddit": "https://www.reddit.com",
+        "pinterest": "https://www.pinterest.com",
+        "snapchat": "https://www.snapchat.com",
+        "tik tok": "https://www.tiktok.com",
+        "netflix": "https://www.netflix.com/",
+        "discord": "https://discord.com/",
+        "github": "https://github.com/"
+    }
 
-call_sid = make_call(to_phone_number, from_phone_number, twilio_sid, twilio_auth_token)
-print(f'Arama yapıldı, SID: {call_sid}')
+    if site_name in social_media_urls:
+        webbrowser.open(social_media_urls[site_name])
+        return True
+    else:
+        return False
 
 
 def run_assistant():
@@ -1080,50 +443,26 @@ def run_assistant():
 #google haritaları açar
         elif 'open maps' in query:
             webbrowser.open("https://www.google.com/maps")
-#çeşitli tarayıcıları açar
-        elif 'open bing' in query:
-            webbrowser.open("https://www.bing.com")
-        elif 'open opera' in query:
-            webbrowser.open("https://www.opera.com")
-        elif 'open chrome' in query:
-            webbrowser.open("https://www.google.com/chrome/")
-        elif 'open safari' in query:
-            webbrowser.open("https://www.apple.com/safari/")
-        elif 'open firefox' in query:
-            webbrowser.open("https://www.mozilla.org/firefox/")
-        elif 'open google' in query:
-            webbrowser.open("https://www.google.com")
-#sosyal medya sitelerini açar
-        elif 'open facebook' in query:
-            webbrowser.open("https://www.facebook.com/")
-        elif 'open instagram' in query:
-            webbrowser.open("https://www.instagram.com/")
-        elif 'open linkedin' in query:
-            webbrowser.open("https://www.linkedin.com/")
-        elif 'open x' in query:
-            webbrowser.open("https://x.com/")
-        elif 'open twitter' in query:
-            webbrowser.open("https://x.com/")
-        elif 'open WhatsApp' in query:
-            webbrowser.open("https://www.whatsapp.com")
-        elif 'open WhatsApp web' in query:
-            webbrowser.open("https://web.whatsapp.com")
-        elif 'open WhatsApp web ' in query:
-            webbrowser.open("https://web.whatsapp.com")
-        elif 'open reddit' in query:
-            webbrowser.open("https://www.reddit.com")
-        elif 'open pinterest' in query:
-            webbrowser.open("https://www.pinterest.com")
-        elif 'open snapchat' in query:
-            webbrowser.open("https://www.snapchat.com")
-        elif 'open tik tok' in query:
-            webbrowser.open("https://www.tiktok.com")
-        elif 'open netflix' in query:
-            webbrowser.open("https://www.netflix.com/")
-        elif 'open discord' in query:
-            webbrowser.open("https://discord.com/")
-        elif 'open GitHub' in query:
-            webbrowser.open("https://github.com/")
+
+# Sosyal Medya Sitelerini Açma
+        elif any(social in query for social in
+            ['open facebook', 'open instagram', 'open linkedin', 'open x', 'open twitter', 'open WhatsApp',
+            'open WhatsApp web', 'open reddit', 'open pinterest', 'open snapchat', 'open tik tok', 'open netflix',
+            'open discord', 'open GitHub']):
+            site_name = query.replace('open ', '').strip()
+            if open_social_media(site_name):
+                speak(f"Opening {site_name}")
+            else:
+                speak("Sorry, I can't open that social media site.")
+
+# Tarayıcıları Açma
+        elif any(browser in query for browser in
+            ['open bing', 'open opera', 'open chrome', 'open safari', 'open firefox', 'open google']):
+            site_name = query.replace('open ', '').strip()
+            if open_browser(site_name):
+                speak(f"Opening {site_name}")
+            else:
+                speak("Sorry, I can't open that browser.")
 #hava durmu
         elif 'what is the weather' in query:
             speak("You can find the weather forecast of your desired location here")
@@ -1194,11 +533,11 @@ def run_assistant():
             search_query = query.replace('search', '').strip()
             webbrowser.open(f"https://www.google.com/search?q={search_query}")
             speak(f"Searching for {search_query} on Google.")
-        elif any(op in query for op in ['+', '-', '*', '/']):
-            result = calculate(query)
-            if result is not None:
-                speak(f"The result of {query} is {result}")
-                print(f"The result of {query} is {result}")
+        elif "calculator" in query:
+            speak("calculator the word was found. Please enter a math expression.")
+            math_query = input("Math expression: (Example: sin(math.pi / 2) or 5 + 7 * 3")
+            handle_math_query(math_query)
+
         elif 'send email' in query:
             speak("Sure, please specify your email address.")
             sender_email = listen()
@@ -1276,10 +615,23 @@ def run_assistant():
             speak(f"Okay: {main()}")
 
 #telefonla arama
-        elif 'apple' in query:
+        elif 'call' in query:
             speak(f"Okay calling: {make_call()}")
+#Haber bülteni
+        elif 'world news' in query:
+            webbrowser.open("https://www.bbc.com/news/")
+        elif 'euro news' in query:
+            webbrowser.open("https://tr.euronews.com/")
+        elif 'türkiye news' in query:
+            webbrowser.open("https://www.hurriyet.com.tr/")
+        elif 'new york  news' in query:
+            webbrowser.open("https://www.nytimes.com")
+        elif 'asia news' in query:
+            webbrowser.open("https://www.bbc.com/news/world/asia")
+        elif 'africa news' in query:
+            webbrowser.open("https://www.bbc.com/news/world/africa")
+#istenilen fotoğrafı tasarlama
+
 
 if __name__ == "__main__":
     run_assistant()
-
-#CREDIT KOD_YAZARI
